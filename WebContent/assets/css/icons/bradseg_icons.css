@@ -1,0 +1,745 @@
+@font-face {
+  font-family: 'bradesco_v2';
+  src:  url('fonts/bradesco_v2.eot?7h6fjl');
+  src:  url('fonts/bradesco_v2.eot?7h6fjl#iefix') format('embedded-opentype'),
+    url('fonts/bradesco_v2.ttf?7h6fjl') format('truetype'),
+    url('fonts/bradesco_v2.woff?7h6fjl') format('woff'),
+    url('fonts/bradesco_v2.svg?7h6fjl#bradesco_v2') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'bradesco_v2' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1 !important;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-viagem-abrangencia:before {
+  content: "\e900";
+}
+.icon-viagem-acessoria:before {
+  content: "\e901";
+}
+.icon-viagem-bagagem:before {
+  content: "\e902";
+}
+.icon-viagem-hospedagem:before {
+  content: "\e903";
+}
+.icon-viagem-perda:before {
+  content: "\e904";
+}
+.icon-viagem-pousar:before {
+  content: "\e905";
+}
+.icon-viagem-seguro:before {
+  content: "\e906";
+}
+.icon-vert-auto:before {
+  content: "\e907";
+}
+.icon-vert-capitalizacao:before {
+  content: "\e908";
+}
+.icon-vert-dental:before {
+  content: "\e909";
+}
+.icon-vert-previdencia:before {
+  content: "\e90a";
+}
+.icon-vert-residencial:before {
+  content: "\e90b";
+}
+.icon-vert-saude:before {
+  content: "\e90c";
+}
+.icon-vert-vida:before {
+  content: "\e90d";
+}
+.icon-vb-beneficios:before {
+  content: "\e90e";
+}
+.icon-vb-bercario:before {
+  content: "\e90f";
+}
+.icon-vb-danca:before {
+  content: "\e910";
+}
+.icon-vb-documentarios:before {
+  content: "\e911";
+}
+.icon-vb-exposicoes:before {
+  content: "\e912";
+}
+.icon-vb-facilidades:before {
+  content: "\e913";
+}
+.icon-vb-jazz:before {
+  content: "\e914";
+}
+.icon-vb-livro:before {
+  content: "\e915";
+}
+.icon-vb-musical:before {
+  content: "\e916";
+}
+.icon-vb-recompensas:before {
+  content: "\e917";
+}
+.icon-vb-teatro:before {
+  content: "\e918";
+}
+.icon-vb-todas:before {
+  content: "\e919";
+}
+.icon-seta-baixo-a:before {
+  content: "\e91a";
+}
+.icon-seta-baixo-b:before {
+  content: "\e91b";
+}
+.icon-seta-baixo-c:before {
+  content: "\e91c";
+}
+.icon-seta-cima-a:before {
+  content: "\e91d";
+}
+.icon-seta-cima-b:before {
+  content: "\e91e";
+}
+.icon-seta-cima-c:before {
+  content: "\e91f";
+}
+.icon-seta-direita-a:before {
+  content: "\e920";
+}
+.icon-seta-direita-b:before {
+  content: "\e921";
+}
+.icon-seta-direita-c:before {
+  content: "\e922";
+}
+.icon-seta-esquerda-a:before {
+  content: "\e923";
+}
+.icon-seta-esquerda-b:before {
+  content: "\e924";
+}
+.icon-seta-esquerda-c:before {
+  content: "\e925";
+}
+.icon-saude-agendar-consulta:before {
+  content: "\e926";
+}
+.icon-saude-ambulancia:before {
+  content: "\e927";
+}
+.icon-saude-cardiograma:before {
+  content: "\e928";
+}
+.icon-saude-dental-cirurgia:before {
+  content: "\e929";
+}
+.icon-saude-dental-dentista:before {
+  content: "\e92a";
+}
+.icon-saude-dental-endodontia:before {
+  content: "\e92b";
+}
+.icon-saude-dental-odontopediatria:before {
+  content: "\e92c";
+}
+.icon-saude-dental-pais:before {
+  content: "\e92d";
+}
+.icon-saude-dental-periodontia:before {
+  content: "\e92e";
+}
+.icon-saude-dental-prevencao:before {
+  content: "\e92f";
+}
+.icon-saude-dental-protese:before {
+  content: "\e930";
+}
+.icon-saude-dental-radiologia:before {
+  content: "\e931";
+}
+.icon-saude-dermatologia:before {
+  content: "\e932";
+}
+.icon-saude-diaria-hospitalar:before {
+  content: "\e933";
+}
+.icon-saude-homeopatia:before {
+  content: "\e934";
+}
+.icon-saude-hospital:before {
+  content: "\e935";
+}
+.icon-saude-infantil:before {
+  content: "\e936";
+}
+.icon-saude-medico:before {
+  content: "\e937";
+}
+.icon-saude-planos-saude:before {
+  content: "\e938";
+}
+.icon-saude-primeiros-socorros:before {
+  content: "\e939";
+}
+.icon-residencial-antenas:before {
+  content: "\e93a";
+}
+.icon-residencial-assist:before {
+  content: "\e93b";
+}
+.icon-residencial-bens:before {
+  content: "\e93c";
+}
+.icon-residencial-chaveiro:before {
+  content: "\e93d";
+}
+.icon-residencial-cobertura:before {
+  content: "\e93e";
+}
+.icon-residencial-descarte:before {
+  content: "\e93f";
+}
+.icon-residencial-eletricista:before {
+  content: "\e940";
+}
+.icon-residencial-encanador:before {
+  content: "\e941";
+}
+.icon-residencial-explosao:before {
+  content: "\e942";
+}
+.icon-residencial-linha-branca:before {
+  content: "\e943";
+}
+.icon-residencial-lixeira:before {
+  content: "\e944";
+}
+.icon-residencial-obra:before {
+  content: "\e945";
+}
+.icon-residencial-patrimonio:before {
+  content: "\e946";
+}
+.icon-residencial-personalizado:before {
+  content: "\e947";
+}
+.icon-residencial-provisoria:before {
+  content: "\e948";
+}
+.icon-residencial-quadros:before {
+  content: "\e949";
+}
+.icon-residencial-raio:before {
+  content: "\e94a";
+}
+.icon-residencial-reparo:before {
+  content: "\e94b";
+}
+.icon-residencial-restaurante:before {
+  content: "\e94c";
+}
+.icon-residencial-telhas:before {
+  content: "\e94d";
+}
+.icon-residencial-vendaval:before {
+  content: "\e94e";
+}
+.icon-residencial-vidraceiro:before {
+  content: "\e94f";
+}
+.icon-residencial-vigilancia:before {
+  content: "\e950";
+}
+.icon-redes-facebook:before {
+  content: "\e951";
+}
+.icon-redes-google:before {
+  content: "\e952";
+}
+.icon-redes-instagram:before {
+  content: "\e953";
+}
+.icon-redes-linkedin:before {
+  content: "\e954";
+}
+.icon-redes-twitter:before {
+  content: "\e955";
+}
+.icon-redes-whatsapp:before {
+  content: "\e956";
+}
+.icon-redes-youtube:before {
+  content: "\e957";
+}
+.icon-nav-adicionar:before {
+  content: "\e958";
+}
+.icon-nav-anexar:before {
+  content: "\e959";
+}
+.icon-nav-apresentacao:before {
+  content: "\e95a";
+}
+.icon-nav-atualizar:before {
+  content: "\e95b";
+}
+.icon-nav-audio:before {
+  content: "\e95c";
+}
+.icon-nav-baixar:before {
+  content: "\e95d";
+}
+.icon-nav-busca:before {
+  content: "\e95e";
+}
+.icon-nav-cadastrar-senha:before {
+  content: "\e95f";
+}
+.icon-nav-compartilhar:before {
+  content: "\e960";
+}
+.icon-nav-configuracoes:before {
+  content: "\e961";
+}
+.icon-nav-conversa:before {
+  content: "\e962";
+}
+.icon-nav-desligar:before {
+  content: "\e963";
+}
+.icon-nav-editar:before {
+  content: "\e964";
+}
+.icon-nav-fechar:before {
+  content: "\e965";
+}
+.icon-nav-filme:before {
+  content: "\e966";
+}
+.icon-nav-imprimir:before {
+  content: "\e967";
+}
+.icon-nav-informacoes:before {
+  content: "\e968";
+}
+.icon-nav-login:before {
+  content: "\e969";
+}
+.icon-nav-ocultar:before {
+  content: "\e96a";
+}
+.icon-nav-pasta:before {
+  content: "\e96b";
+}
+.icon-nav-produtos:before {
+  content: "\e96c";
+}
+.icon-nav-remover:before {
+  content: "\e96d";
+}
+.icon-nav-reportar:before {
+  content: "\e96e";
+}
+.icon-nav-sair:before {
+  content: "\e96f";
+}
+.icon-nav-seguir:before {
+  content: "\e970";
+}
+.icon-nav-selecionar:before {
+  content: "\e971";
+}
+.icon-nav-som:before {
+  content: "\e972";
+}
+.icon-nav-visualizar:before {
+  content: "\e973";
+}
+.icon-nav-voltar:before {
+  content: "\e974";
+}
+.icon-info-anunciar:before {
+  content: "\e975";
+}
+.icon-info-bloqueio-aberto:before {
+  content: "\e976";
+}
+.icon-info-desconto-loja:before {
+  content: "\e977";
+}
+.icon-info-dia-noite:before {
+  content: "\e978";
+}
+.icon-info-diversidade:before {
+  content: "\e979";
+}
+.icon-info-educacao:before {
+  content: "\e97a";
+}
+.icon-info-emergencia:before {
+  content: "\e97b";
+}
+.icon-info-empresa:before {
+  content: "\e97c";
+}
+.icon-info-endereco:before {
+  content: "\e97d";
+}
+.icon-info-estrategia:before {
+  content: "\e97e";
+}
+.icon-info-familiar:before {
+  content: "\e97f";
+}
+.icon-info-foto:before {
+  content: "\e980";
+}
+.icon-info-funcionarios:before {
+  content: "\e981";
+}
+.icon-info-ideia:before {
+  content: "\e982";
+}
+.icon-info-incendio:before {
+  content: "\e983";
+}
+.icon-info-informar:before {
+  content: "\e984";
+}
+.icon-info-informatica:before {
+  content: "\e985";
+}
+.icon-info-invalidez:before {
+  content: "\e986";
+}
+.icon-info-ladrao:before {
+  content: "\e987";
+}
+.icon-info-lavadeira:before {
+  content: "\e988";
+}
+.icon-info-limpeza:before {
+  content: "\e989";
+}
+.icon-info-livre-escolha:before {
+  content: "\e98a";
+}
+.icon-info-localizar-mapa:before {
+  content: "\e98b";
+}
+.icon-info-loja:before {
+  content: "\e98c";
+}
+.icon-info-mobile:before {
+  content: "\e98d";
+}
+.icon-info-morte:before {
+  content: "\e98e";
+}
+.icon-info-nautico:before {
+  content: "\e98f";
+}
+.icon-info-outros-seguros:before {
+  content: "\e990";
+}
+.icon-info-perfil:before {
+  content: "\e991";
+}
+.icon-info-pet:before {
+  content: "\e992";
+}
+.icon-info-play:before {
+  content: "\e993";
+}
+.icon-info-previdencia:before {
+  content: "\e994";
+}
+.icon-info-qualidade:before {
+  content: "\e995";
+}
+.icon-info-responsabilidade-civil:before {
+  content: "\e996";
+}
+.icon-info-resultado-sorteio:before {
+  content: "\e997";
+}
+.icon-info-solucoes-negocio:before {
+  content: "\e998";
+}
+.icon-info-traducao:before {
+  content: "\e999";
+}
+.icon-info-trofeu:before {
+  content: "\e99a";
+}
+.icon-info-web:before {
+  content: "\e99b";
+}
+.icon-fin-acordo:before {
+  content: "\e99c";
+}
+.icon-fin-banco:before {
+  content: "\e99d";
+}
+.icon-fin-boleto:before {
+  content: "\e99e";
+}
+.icon-fin-caixa:before {
+  content: "\e99f";
+}
+.icon-fin-cartao:before {
+  content: "\e9a0";
+}
+.icon-fin-cheque:before {
+  content: "\e9a1";
+}
+.icon-fin-compra-online:before {
+  content: "\e9a2";
+}
+.icon-fin-comprar:before {
+  content: "\e9a3";
+}
+.icon-fin-compras:before {
+  content: "\e9a4";
+}
+.icon-fin-contribuicao:before {
+  content: "\e9a5";
+}
+.icon-fin-custo:before {
+  content: "\e9a6";
+}
+.icon-fin-debito-online:before {
+  content: "\e9a7";
+}
+.icon-fin-deposito-cheque:before {
+  content: "\e9a8";
+}
+.icon-fin-fatura:before {
+  content: "\e9a9";
+}
+.icon-fin-industria:before {
+  content: "\e9aa";
+}
+.icon-fin-investimento:before {
+  content: "\e9ab";
+}
+.icon-fin-ir:before {
+  content: "\e9ac";
+}
+.icon-fin-nota-fiscal:before {
+  content: "\e9ad";
+}
+.icon-fin-pgbl:before {
+  content: "\e9ae";
+}
+.icon-fin-poupanca:before {
+  content: "\e9af";
+}
+.icon-fin-preco-acessivel:before {
+  content: "\e9b0";
+}
+.icon-fin-premios:before {
+  content: "\e9b1";
+}
+.icon-fin-receber:before {
+  content: "\e9b2";
+}
+.icon-fin-recibo:before {
+  content: "\e9b3";
+}
+.icon-fin-rendimento:before {
+  content: "\e9b4";
+}
+.icon-fin-resgate:before {
+  content: "\e9b5";
+}
+.icon-fin-sacar-cheque:before {
+  content: "\e9b6";
+}
+.icon-fin-saldo:before {
+  content: "\e9b7";
+}
+.icon-fin-sem-custo:before {
+  content: "\e9b8";
+}
+.icon-fin-simulacao:before {
+  content: "\e9b9";
+}
+.icon-fin-tranquilidade:before {
+  content: "\e9ba";
+}
+.icon-fin-transferencia:before {
+  content: "\e9bb";
+}
+.icon-doc-add-calendario:before {
+  content: "\e9bc";
+}
+.icon-doc-alerta:before {
+  content: "\e9bd";
+}
+.icon-doc-analisar:before {
+  content: "\e9be";
+}
+.icon-doc-calendario:before {
+  content: "\e9bf";
+}
+.icon-doc-carencia:before {
+  content: "\e9c0";
+}
+.icon-doc-contratos:before {
+  content: "\e9c1";
+}
+.icon-doc-dicionario:before {
+  content: "\e9c2";
+}
+.icon-doc-documento:before {
+  content: "\e9c3";
+}
+.icon-doc-form:before {
+  content: "\e9c4";
+}
+.icon-doc-pdf:before {
+  content: "\e9c5";
+}
+.icon-doc-prancheta:before {
+  content: "\e9c6";
+}
+.icon-doc-protocolos:before {
+  content: "\e9c7";
+}
+.icon-dados-cpf:before {
+  content: "\e9c8";
+}
+.icon-dados-profissao:before {
+  content: "\e9c9";
+}
+.icon-dados-sexo:before {
+  content: "\e9ca";
+}
+.icon-dados-usuario:before {
+  content: "\e9cb";
+}
+.icon-shop-estrela:before {
+  content: "\e9cc";
+}
+.icon-shop-shopping:before {
+  content: "\e9cd";
+}
+.icon-auto-autoridades:before {
+  content: "\e9ce";
+}
+.icon-auto-cambio:before {
+  content: "\e9cf";
+}
+.icon-auto-caminhao:before {
+  content: "\e9d0";
+}
+.icon-auto-coberturas-adicionais:before {
+  content: "\e9d1";
+}
+.icon-auto-completo:before {
+  content: "\e9d2";
+}
+.icon-auto-condutor:before {
+  content: "\e9d3";
+}
+.icon-auto-corretores:before {
+  content: "\e9d4";
+}
+.icon-auto-oficinas-guinchos:before {
+  content: "\e9d5";
+}
+.icon-auto-portas:before {
+  content: "\e9d6";
+}
+.icon-auto-protecao:before {
+  content: "\e9d7";
+}
+.icon-auto-sinistro:before {
+  content: "\e9d8";
+}
+.icon-auto-tracar-rota:before {
+  content: "\e9d9";
+}
+.icon-auto-veiculo:before {
+  content: "\e9da";
+}
+.icon-atend-adicionar-contato:before {
+  content: "\e9db";
+}
+.icon-atend-atendente:before {
+  content: "\e9dc";
+}
+.icon-atend-cel:before {
+  content: "\e9dd";
+}
+.icon-atend-celular:before {
+  content: "\e9de";
+}
+.icon-atend-chat:before {
+  content: "\e9df";
+}
+.icon-atend-chatbot:before {
+  content: "\e9e0";
+}
+.icon-atend-email-envio:before {
+  content: "\e9e1";
+}
+.icon-atend-email:before {
+  content: "\e9e2";
+}
+.icon-atend-fixo:before {
+  content: "\e9e3";
+}
+.icon-atend-presencial:before {
+  content: "\e9e4";
+}
+.icon-atend-sms:before {
+  content: "\e9e5";
+}
+.icon-atend-telefone:before {
+  content: "\e9e6";
+}
+.icon-alerta-atencao:before {
+  content: "\e9e7";
+}
+.icon-alerta-duvida:before {
+  content: "\e9e8";
+}
+.icon-alerta-erro:before {
+  content: "\e9e9";
+}
+.icon-alerta-sucesso:before {
+  content: "\e9ea";
+}
+.icon-acess-cadeirante:before {
+  content: "\e9eb";
+}
+.icon-acess-font-maior:before {
+  content: "\e9ec";
+}
+.icon-acess-font-menor:before {
+  content: "\e9ed";
+}
+.icon-acess-surdos:before {
+  content: "\e9ee";
+}
+.icon-acess-baixa-visao:before {
+  content: "\e9ef";
+}

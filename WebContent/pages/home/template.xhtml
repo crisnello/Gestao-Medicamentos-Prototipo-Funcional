@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui"
+      >
+  <h:head>
+    <title>Bradesco Seguros</title>
+    
+    <meta name="description" content="Sistema para Bradesco" />
+	<meta name="keywords" content=" monitoracao, histórico, solitação, remédio" />
+    
+    
+    
+    <link href="#{request.contextPath}/assets/css/style.css?v=#{appBean.versao}" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="#{request.contextPath}/assets/css/style_tables.css?v=#{appBean.versao}" rel="stylesheet" type="text/css" media="screen"/>
+    
+    <link href="#{request.contextPath}/assets/css/bradseg_styles.min.css?v=#{appBean.versao}" rel="stylesheet" type="text/css" media="screen"/>
+    
+    <link href="#{request.contextPath}/assets/icons/favicon-16x16.ico" rel="shortcut icon" type="image/x-icon"/>
+    
+    <ui:insert name="css">
+	</ui:insert>
+	
+	<script type="text/javascript" src="#{request.contextPath}/assets/js/sys_funcoes.js?v=#{appBean.versao}"></script>
+    <ui:insert name="js">
+	</ui:insert>
+	
+	<c:if test="#{usuario != null}">
+		<script type="text/javascript">
+			reloadPage('#{request.contextPath}#{home}.jsf');
+		</script>
+	</c:if>
+	
+  </h:head>
+  <h:body>
+    <ui:insert name="body">
+		<div class="bar">
+				<div class="header content clearfix">
+						
+					<span class="signup-button ">
+						Bradesco
+						<!-- <p:commandButton value="Experimente uma conta grátis" id="link-signup" /> -->
+					</span>
+				</div>
+			</div>
+  		
+			<ui:insert name="content">
+			</ui:insert>
+			
+			<div id="footer">
+				<div class="footer content clearfix">
+					<ul>
+					  <li>© 2018 </li>
+					  <li><a href="#">Termos de Uso</a></li>
+					  <li><a href="#">Política de Privacidade</a></li>
+					  <li> Curitiba - PR</li>
+					</ul>
+				</div>
+			</div>
+	</ui:insert>
+  </h:body>
+</html>

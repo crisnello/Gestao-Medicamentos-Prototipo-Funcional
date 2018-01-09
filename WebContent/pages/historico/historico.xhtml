@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    
+ 	<ui:composition template="/pages/templates/template_mapa.xhtml" >
+ 		<ui:define name="js">
+ 			<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+			<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+ 			<script src="#{request.contextPath}/assets/js/sys_historico.js?v=#{appBean.versao}"></script>
+ 			<script src="#{request.contextPath}/assets/js/sys_monitoracao_cerca.js?v=#{appBean.versao}"></script>
+ 		</ui:define>
+ 	
+ 		<ui:define name="menu_esquerdo">
+			<div style="padding: 5px; border-bottom: 2px solid #CCC; width: 100%;">
+				<table>
+					<tr>
+						<td>
+							<h:form prependId="false" >
+								<p:inputText id="search_endereco" title="Buscar endereço"/>
+							</h:form>	
+						</td>
+						<td>
+							<h:graphicImage url="/assets/images/icons/grey/search.png" alt='Localizar Endereço' id='botao_endereco' title='Localizar Endereço'/>
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<ul id="feature_menu" style="padding: 5px;">
+			    <li>CONSULTAR HISTÓRICO</li>
+			</ul>
+			
+			<h:form id="form_buscar_historico" style="padding: 10px;" prependId="false">
+				<br/>
+				<p:messages />
+				<h:inputHidden value="#{historicoBean.posicionamentos}" id="posicionamentos"/>
+				<table style="padding: 10px;float: right;">
+					<tr>
+						<td colspan="2">
+							<p:outputLabel value="Objeto" for="combo_veiculos"/>
+							<p:selectOneMenu id="combo_veiculos" value="#{historicoBean.idVeiculo}">
+								<f:selectItems value="#{monitoracaoBean.veiculos}" var="v" itemLabel="#{v.placa} - #{v.modelo}" itemValue="#{v.id}" />
+							</p:selectOneMenu>
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 120px;">
+							<p:outputLabel for="data_de" value="Data de" />
+							<p:calendar size="10" value="#{historicoBean.dataDe}" maxdate="#{historicoBean.dataMaxima}" id="data_de" locale="pt_BR" navigator="true" readonlyInput="true" pattern="dd/MM/yyyy">
+							</p:calendar>
+						</td>
+						<td style="width: 120px;">
+							<p:outputLabel for="data_ate" value="Data até"/>
+							<p:calendar size="10" value="#{historicoBean.dataAte}" maxdate="#{historicoBean.dataMaxima}" id="data_ate" locale="pt_BR"  navigator="true" readonlyInput="true" pattern="dd/MM/yyyy">
+							</p:calendar>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" align="right" style="padding-top: 10px;">
+							<p:commandButton value="Procurar"  id="procurar"
+								title="Preencha os filtros para buscar o histórico de percusos do objeto" 
+								actionListener="#{historicoBean.consultarHistorico}"  
+								oncomplete="buscar()" update="form_buscar_historico" process="@form" icon="ui-icon-search"
+								/>
+						</td>
+					</tr>
+				</table>
+				<div style="clear: both;"></div>
+				
+				<div style="height: 70px;"></div>
+				<h:panelGrid columns="2" style="line-height: 30px;font-size: 11px;">
+					<h:graphicImage url="/assets/images/numeric/blackP.png" />
+					<h:outputText value="Objeto parado" />
+					<h:graphicImage url="/assets/images/arrow/right.png" />
+					<h:outputText value="Velocidade abaixo de 60 km/h" />
+					<h:graphicImage url="/assets/images/arrow/orange/right.png" />
+					<h:outputText value="Velocidade entre 60 km/h e 80 km/h" />
+					<h:graphicImage url="/assets/images/arrow/red/right.png" />
+					<h:outputText value="Velocidade acima de 80 km/h" />
+				</h:panelGrid>
+				
+				<p:blockUI trigger="procurar" block="form_buscar_historico" >
+					<h:graphicImage url="/assets/images/load.gif" />
+				</p:blockUI>
+				<div style="clear: both;"></div>
+			</h:form>
+			
+ 		</ui:define>
+ 		
+ 		
+ 		
+  	</ui:composition>
+</html>

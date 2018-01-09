@@ -1,0 +1,41 @@
+.panel ul {
+	    list-style-type:none;
+	    border:1px solid #999;
+	    background:#ccc;
+	    padding:20px;
+	    height:250px;
+	    width:225px;
+	    overflow: auto;
+	}
+	 
+	.panel li {
+	    display:block;
+	    border:1px solid #999;
+	    background:#fff;
+	    width:195px;
+	    padding:5px 10px;
+	    margin-bottom:5px;
+	}
+	 
+	.panel .sem_permissao{
+		background:#D3D3D3 !important;
+	} 
+	 
+	.panel .dds_selected {
+	    background:#ffc;
+	}
+	.panel .dds_ghost {
+	    opacity:0.5;
+	}
+	.panel .dds_move {
+	    background:#cfc;
+	}
+	.panel .dds_hover {
+	    background:#fc9;
+	    border:1px dashed #c96;
+	}
+	 
+	.panel .holder {
+	    border:1px dashed #333;
+	    background:#fff;
+	}

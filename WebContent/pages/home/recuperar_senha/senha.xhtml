@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    
+ 	<ui:composition template="/pages/home/template.xhtml" >
+ 		
+ 		<ui:define name="css">
+ 			<link href="#{request.contextPath}/assets/css/login.css" rel="stylesheet" type="text/css" media="screen"/>
+ 		</ui:define>
+ 		
+ 		<ui:define name="content">
+ 			<div class="main content clearfix">
+  				<div class="recuperar">
+  					<div class="recuperar-box">
+  						<h2>Recuperar Senha <strong></strong></h2>
+  						Informe a nova senha para realizar a alteração.
+  						<br/>
+  						<h:form id="recuperar">
+							<p:messages id="mensagens" />
+							<h:panelGrid columns="1">
+								<h:outputLabel value="Senha" for="login_senha" styleClass="ui-outputlabel" />
+						    	<p:inputText type="password" value="#{loginBean.usuario.senha}" id="login_senha" maxlength="30" size="50" title="Por favor, informe a nova senha." required="true" requiredMessage="Por favor, informe a nova senha."/>
+						    	
+						    	<h:outputLabel value="Confirme a senha" for="login_csenha" styleClass="ui-outputlabel" />
+						    	<p:inputText type="password" value="#{loginBean.usuario.senhaConfirm}" id="login_csenha" maxlength="30" size="50" title="Por favor, confirme a nova senha." required="true" requiredMessage="Por favor, confirme a nova senha."/>
+							</h:panelGrid>
+							<br/>
+							<table width="100%">
+								<tr>
+									<td align="right">
+										<p:commandButton ajax="false" value="Alterar Senha" process="@form"
+										update="@form"
+										action="#{loginBean.alterarRecuperarSenha}" id="enviar"
+										icon="ui-icon-refresh" />
+								</td>
+								</tr>
+							</table>
+						</h:form>
+  					</div>
+  				</div>
+  			</div>
+ 		</ui:define>
+  	</ui:composition>
+</html>

@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    
+		 	<ui:composition template="/pages/templates/template_content.xhtml" >
+		 	 		<ui:define name="js">
+			 			<script src="#{request.contextPath}/assets/js/sys_pedido.js"></script>
+			 		</ui:define>
+
+ 		
+    	 		<ui:define name="menu_esquerdo">
+		 			<div class="novo">
+		 				<h:form>
+							
+							<h:commandButton value="Novo Pedido" action="#{pedidoBean.pedidoAdd}" ajax="false" icon="ui-icon-plus" styleClass="bradseg-btn small blue"/>			
+		 				</h:form>
+					</div>
+					<h:form>
+						<table id="hor-minimalist-a" cellspacing="0">
+							<thead>
+							<tr>
+								<th scope="col" align="left">PEDIDOS CADASTRADOS</th>
+								<th align="right">
+									<!-- <h:graphicImage url="/assets/images/icons/grey/lab.png"/> -->
+									<i class="icons-content icon-info-informar font42px font-red elem-left"></i>
+								</th>
+							</tr>
+							</thead>
+							<tbody>
+								<ui:repeat var="u" value="#{pedidoBean.pedidos}">
+									<tr>
+										<td colspan="2">
+											<h:commandLink value="#{u.numero_pedido} - #{u.dataCadastroBr}" action="#{pedidoBean.abrirEditar}" style="font-size: 17px;">
+												<f:param value="#{u.id}" name="id" />
+											</h:commandLink>
+										</td>
+									</tr>
+								</ui:repeat>
+							</tbody>
+						</table>
+					</h:form>
+		 		</ui:define>
+		 		
+		 	
+ 	
+  			</ui:composition>
+
+</html>
