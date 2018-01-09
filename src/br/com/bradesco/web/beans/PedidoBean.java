@@ -147,11 +147,13 @@ public class PedidoBean implements Serializable{
 			Usuario u = (Usuario) Utils.buscarSessao("usuario");
 			PedidoDao dao = new PedidoDao();
 			
-			logger.debug(med.size());
+			logger.debug(pedido.getMedicamentos());
+			
+/*			logger.debug(med.size());
 			for (String string : med) {
 				logger.debug(string);
 			}
-			logger.debug("MED");
+			logger.debug("MED");*/
 	        //POG - ARRUMAR depois
 			ArrayList<Medicamento> meds = new ArrayList<Medicamento>();
 	        for(int i=0;i<pedido.getMedicamentos().size();i++) {

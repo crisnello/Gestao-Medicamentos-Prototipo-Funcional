@@ -174,7 +174,7 @@
  						
  					</tr>
  					<!-- OK -->
- 					<tr>
+<!--  					<tr>
  						<td colspan="3">
  						<div class="form-group">
 							<h:outputLabel value="Medicamentos" for="medicamentos" styleClass="ui-outputlabel"/>
@@ -184,16 +184,16 @@
 						        </h:selectManyListbox>
 						        </div>
  						</td>
- 					</tr>
+ 					</tr> -->
  					<!-- OK -->
  					
  					
  					
-<!--  					 <tr>
+ 					 <tr style="display:none;">
  						<td colspan="3">
 	 						<div class="form-group">
 								<h:outputLabel value="Medicamentos" for="medicamentos" styleClass="ui-outputlabel"/>
-								<p class="font12px text-justify">utilize Ctrl para selecionar mais de um medicamento</p>
+								
 									<table class="bradseg-table full-width" width="100%" >
 									    <thead class="hidden-xs">
 									        <tr>
@@ -217,14 +217,14 @@
 							        </table>
 							</div>
  						</td>
- 					</tr> -->
+ 					</tr>
 
  					
-<!--  					<tr>
+ 					<tr>
  						<td colspan="4">
- 								<h:outputLabel value="Medicamento" for="medicamento" styleClass="ui-outputlabel"/>
+ 								<h:outputLabel value="Medicamentos" for="medicamentos" styleClass="ui-outputlabel"/>
  							
-		 						<table class="bradseg-table full-width" width="100%" >
+		 						<table class="bradseg-table full-width" width="100%" id="form_pedido_add:medicamentos">
 								    <thead class="hidden-xs">
 								        <tr>
 								            <th class="col-md-1 text-center"></th>
@@ -234,17 +234,12 @@
 								        </tr>
 								    </thead>
 								    <tbody height="150px">
-								    	
 									    <ui:repeat var="m" value="#{medicamentoBean.medicamentos}" varStatus="status">
 												<tr>
 										            <td class="col-md-1 col-sm-1 col-xs-12 text-center">
-										                <div class="bradseg-chk">
-										                	<input id="med:#{status.index}" name="med[]" value="#{pedidoBean.med['1']}" type="checkbox"   />
-															<label for="med:#{status.index}"><span class="checkBox"><span class="icon-chk" ></span></span></label> 
-														
-															<input id="form_pedido_add:medicamentos:#{status.index}" name="#{pedidoBean.med}" value="#{pedidoBean.med}" type="checkbox"   />
+										                <div class="">
+															<input id="form_pedido_add:medicamentos:#{status.index}" name="form_pedido_add:medicamentos" value="#{m.id}" type="checkbox"   />
 														    <label for="form_pedido_add:medicamentos:#{status.index}"><span class="checkBox"><span class="icon-chk" ></span></span></label>
-														     
 														</div>
 													</td>
 										            <td class="col-md-2 col-sm-2 col-xs-12">#{m.ean}</td>
@@ -257,7 +252,7 @@
 								</table>
 							
  						</td>
- 					</tr> -->
+ 					</tr>
  					
  					
  					
