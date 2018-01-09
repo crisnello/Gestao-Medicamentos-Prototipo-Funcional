@@ -2,9 +2,12 @@ $(document).ready(function() {
 	selecionarAba('aba_pedidos');
  	td_hover($("#hor-minimalist-a td"));
  	
- 	
-
- 	  
+/* 	$('#form_pedido_add').on('submit',function(){
+ 	    alert('jquery');
+ 		changeClass('input_nome',"form-group error");
+ 		$("#input_nome").classList.add("error");
+ 	});
+*/ 	  
 /* 	    $('input[id^="chk_"]').click(function() {
  	    	 str = "[";
 	 	  	  

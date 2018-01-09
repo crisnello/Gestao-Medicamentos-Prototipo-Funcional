@@ -147,7 +147,11 @@ public class PedidoBean implements Serializable{
 			Usuario u = (Usuario) Utils.buscarSessao("usuario");
 			PedidoDao dao = new PedidoDao();
 			
-			logger.debug(pedido.getMedicamentos());
+//			logger.debug(pedido.getMedicamentos());
+			
+			if(pedido.getNome().trim().equals("")) {
+				return "/pages/pedido/pedidoAdd";
+			}
 			
 /*			logger.debug(med.size());
 			for (String string : med) {
