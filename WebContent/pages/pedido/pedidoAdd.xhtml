@@ -173,27 +173,58 @@
  						</td>
  						
  					</tr>
+ 					<!-- OK -->
  					<tr>
  						<td colspan="3">
  						<div class="form-group">
-							<h:outputLabel value="Medicamento" for="medicamento" styleClass="ui-outputlabel"/>
-							<p class="font12px text-justify">
-								utilize Ctrl para selecionar mais de um medicamento	
-							</p>
+							<h:outputLabel value="Medicamentos" for="medicamentos" styleClass="ui-outputlabel"/>
+							<p class="font12px text-justify">utilize Ctrl para selecionar mais de um medicamento	</p>
 								<h:selectManyListbox id="medicamentos" value="#{pedidoBean.pedido.medicamentos}" size="7" styleClass="full-width">
 	 								<f:selectItems value="#{medicamentoBean.medicamentos}" var="med" itemLabel="#{med.ean} - #{med.medicamento} /  #{med.apresentacao}" itemValue="#{med.id}" ></f:selectItems>
 						        </h:selectManyListbox>
 						        </div>
  						</td>
  					</tr>
+ 					<!-- OK -->
  					
+ 					
+ 					
+<!--  					 <tr>
+ 						<td colspan="3">
+	 						<div class="form-group">
+								<h:outputLabel value="Medicamentos" for="medicamentos" styleClass="ui-outputlabel"/>
+								<p class="font12px text-justify">utilize Ctrl para selecionar mais de um medicamento</p>
+									<table class="bradseg-table full-width" width="100%" >
+									    <thead class="hidden-xs">
+									        <tr>
+									            <th class="col-md-1 text-center"></th>
+									            <th class="col-md-1">EAN</th>
+									            <th class="col-md-5">Medicamento</th>
+									            <th class="col-md-4">Apresentação</th>
+									        </tr>
+									    </thead>
+									    <tbody >
+									    	<tr>
+										      <td class="col-md-1 col-sm-1 col-xs-12 text-left">
+										       
+													<h:selectManyCheckbox id="medicamentos" value="#{pedidoBean.pedido.medicamentos}" size="7" styleClass="full-width checkbox  " layout="pageDirection">
+						 								<f:selectItems value="#{medicamentoBean.medicamentos}" id="med_#{status.index}" var="med" itemLabel="#{med.ean} - #{med.medicamento} /  #{med.apresentacao}" itemValue="#{med.id}"  ></f:selectItems>
+											        </h:selectManyCheckbox>
+											   
+										      </td>
+										    </tr>
+								        </tbody>
+							        </table>
+							</div>
+ 						</td>
+ 					</tr> -->
 
  					
 <!--  					<tr>
  						<td colspan="4">
- 						<h:outputLabel value="Medicamento" for="medicamento" styleClass="ui-outputlabel"/>
+ 								<h:outputLabel value="Medicamento" for="medicamento" styleClass="ui-outputlabel"/>
  							
-		 						<table class="bradseg-table full-width" width="100%" id="form_pedido_add:medicamentos">
+		 						<table class="bradseg-table full-width" width="100%" >
 								    <thead class="hidden-xs">
 								        <tr>
 								            <th class="col-md-1 text-center"></th>
@@ -208,8 +239,12 @@
 												<tr>
 										            <td class="col-md-1 col-sm-1 col-xs-12 text-center">
 										                <div class="bradseg-chk">
-														    <input id="form_pedido_add:medicamentos:#{status.index}" value="#{pedidoBean.med}" type="checkbox"   />
-														    <label for="form_pedido_add:medicamentos:#{status.index}"><span class="checkBox"><span class="icon-chk" ></span></span></label> 
+										                	<input id="med:#{status.index}" name="med[]" value="#{pedidoBean.med['1']}" type="checkbox"   />
+															<label for="med:#{status.index}"><span class="checkBox"><span class="icon-chk" ></span></span></label> 
+														
+															<input id="form_pedido_add:medicamentos:#{status.index}" name="#{pedidoBean.med}" value="#{pedidoBean.med}" type="checkbox"   />
+														    <label for="form_pedido_add:medicamentos:#{status.index}"><span class="checkBox"><span class="icon-chk" ></span></span></label>
+														     
 														</div>
 													</td>
 										            <td class="col-md-2 col-sm-2 col-xs-12">#{m.ean}</td>

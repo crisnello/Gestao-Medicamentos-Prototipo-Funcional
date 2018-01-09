@@ -88,32 +88,25 @@
 		</h:form>
 		
 		
-	<div id="nav-anchor">
-		<div class="nav-anchor">
-		
-  		<div class="wrap form-group nav-abas">
-	  						
-			<h:form prependId="false">
-				<ul id="menu">
- 				   <c:if test="#{permissoes['1'] == true || usuario.idPerfil == 1 || usuario.idPerfil == 3}">
-			      	 	<li><h:commandLink value="Medicamentos" action="/pages/medicamento/template" id='aba_medicamentos' immediate="true" styleClass="nav-abas-btn" /></li>
-			       </c:if>
-			     <!--  <c:if test="#{permissoes['6'] == true || usuario.idPerfil == 1 || usuario.idPerfil == 3}">
-			       		<li><h:commandLink value="Estatísticas" action="/pages/relatorios/relatorios" id='aba_relatorios' immediate="true" styleClass="nav-abas-btn"/></li>
-			       </c:if> -->
-					<c:if test="#{permissoes['2'] == true || usuario.idPerfil == 1 || usuario.idPerfil == 3}">
-			       		<li><h:commandLink value="Pedido" action="/pages/pedido/template" id='aba_pedidos' immediate="true" styleClass="nav-abas-btn"/></li>
-			       </c:if>
-			       <c:if test="#{permissoes['4'] == true || usuario.idPerfil == 1 || usuario.idPerfil == 3}">
-			       		<li><h:commandLink value="Usuário" action="#{usuarioBean.template}" id='aba_usuarios' immediate="true" styleClass="nav-abas-btn"/></li>
-			       </c:if>
-			   	</ul>
-		   	</h:form>
-		</div>
-		
-
-
-		</div>
+	<div id="nav-anchor" class="nav-anchor">
+			<div class="wrap nav-abas">
+				<h:form prependId="false">
+					<ul id="menu">
+	 				   <c:if test="#{permissoes['1'] == true || usuario.idPerfil == 1 || usuario.idPerfil == 3}">
+				      	 	<li><h:commandLink value="Medicamentos" action="/pages/medicamento/template" id='aba_medicamentos' immediate="true" styleClass="nav-abas-btn" /></li>
+				       </c:if>
+				     <!--  <c:if test="#{permissoes['6'] == true || usuario.idPerfil == 1 || usuario.idPerfil == 3}">
+				       		<li><h:commandLink value="Estatísticas" action="/pages/relatorios/relatorios" id='aba_relatorios' immediate="true" styleClass="nav-abas-btn"/></li>
+				       </c:if> -->
+						<c:if test="#{permissoes['2'] == true || usuario.idPerfil == 1 || usuario.idPerfil == 3}">
+				       		<li><h:commandLink value="Pedido" action="/pages/pedido/template" id='aba_pedidos' immediate="true" styleClass="nav-abas-btn"/></li>
+				       </c:if>
+				       <c:if test="#{permissoes['4'] == true || usuario.idPerfil == 1 || usuario.idPerfil == 3}">
+				       		<li><h:commandLink value="Usuário" action="#{usuarioBean.template}" id='aba_usuarios' immediate="true" styleClass="nav-abas-btn"/></li>
+				       </c:if>
+				   	</ul>
+			   	</h:form>
+			</div>
 	</div>
 	
 		

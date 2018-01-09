@@ -135,7 +135,7 @@ function changeClass(elementID, newClass) {
 	var element = document.getElementById(elementID);
 	element.setAttribute("class", newClass); // For Most Browsers
 	element.setAttribute("className", newClass); // For IE; harmless to other
-													// browsers.
+													
 }
 
 function trocarCliente(){

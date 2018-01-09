@@ -33,15 +33,18 @@ public class PedidoBean implements Serializable{
 	private Pedido pedido;
 	
 	
-	private Map<String,Boolean> med;
-		public Map<String, Boolean> getMed() {
+	private List<String> med;
+	
+	public List<String> getMed() {
 		return med;
 	}
-	public void setMed(Map<String, Boolean> med) {
+
+	public void setMed(List<String> med) {
 		this.med = med;
 	}
 
 	public PedidoBean() {
+		med = new ArrayList<String>();
 		atualizarpedidos();
 		setPedido(new Pedido());
 	}
@@ -143,8 +146,12 @@ public class PedidoBean implements Serializable{
 		try{
 			Usuario u = (Usuario) Utils.buscarSessao("usuario");
 			PedidoDao dao = new PedidoDao();
-		
-
+			
+			logger.debug(med.size());
+			for (String string : med) {
+				logger.debug(string);
+			}
+			logger.debug("MED");
 	        //POG - ARRUMAR depois
 			ArrayList<Medicamento> meds = new ArrayList<Medicamento>();
 	        for(int i=0;i<pedido.getMedicamentos().size();i++) {
