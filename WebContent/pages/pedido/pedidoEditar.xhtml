@@ -377,14 +377,36 @@
 	 					</td>
 	 				</tr>
  				</table>
+ 
 
-
+				<!-- Modal -->
+<!-- 				<div id="idModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					<div class="modal-vertical-helper">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+									<h5 class="modal-title" id="myModalLabel">Título Opcional</h5>
+								</div>
+								<div class="modal-body">
+									<span class="font100px font-blue icon-alerta-sucesso"></span>
+									<h5 class="font-blue">Sucesso!</h5>
+									<p class="font16px">Mensagem opcional.</p>
+								</div>
+								<div class="modal-footer">
+									<input class="bradseg-btn small" type="button" value="Cancelar" data-dismiss="modal" />
+									<input class="bradseg-btn blue small" type="button" value="Ok" data-dismiss="modal" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> -->
  				
- 				<p:confirmDialog id="confirmDialog" message="Tem certeza que deseja excluir o pedido?"  header="Atenção" severity="alert" widgetVar="confirmation">  
-			        <p:commandButton id="confirm" value="Confirmar" process="form_veiculo_edit" action="#{pedidoBean.excluir}" ajax="false" immediate="true">
+ 				<p:confirmDialog id="confirmDialog" message="Tem certeza que deseja excluir o pedido?"  header="Atenção" severity="alert" widgetVar="confirmation" >  
+			        <p:commandButton id="confirm" value="Confirmar" process="form_veiculo_edit" action="#{pedidoBean.excluir}" ajax="false" immediate="true" >
 			        	<f:param name="id" value="#{pedidoBean.pedido.id}" />
 			        </p:commandButton>  
-			        <p:commandButton id="decline" value="Cancelar" onclick="confirmation.hide()" type="button" />   
+			        <p:commandButton id="decline" value="Cancelar" onclick="confirmation.hide()" type="button"  />   
     			</p:confirmDialog>
     			
  			</h:form>

@@ -47,7 +47,7 @@ public class Utils {
 	public static FacesMessage addMessageSucesso(String msg){
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO,msg,"");
-		facesContext.addMessage("erro", message);
+		facesContext.addMessage("sucesso", message);
 		return message;
 	}
 	

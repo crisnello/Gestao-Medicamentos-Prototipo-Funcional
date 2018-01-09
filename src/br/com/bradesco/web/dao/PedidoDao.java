@@ -48,10 +48,18 @@ public class PedidoDao extends BaseDao{
 	public void excluir(long idPedido) throws Throwable{
 		try{
 			conectar();
-			
-			String q1 = "delete from pedido where id = ?" ;
+
+			String q1 = "delete from pedido_medicamento where id_pedido = ?" ; //verificar se não é melhor fazer o delete on cascade
 			
 			pstm = con.prepareStatement(q1);
+			pstm.setLong(1, idPedido);
+			
+			pstm.executeUpdate();
+
+			
+			String q2 = "delete from pedido where id = ?" ;
+			
+			pstm = con.prepareStatement(q2);
 			pstm.setLong(1, idPedido);
 			
 			pstm.executeUpdate();
