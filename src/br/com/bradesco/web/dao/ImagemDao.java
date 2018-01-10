@@ -81,6 +81,7 @@ public class ImagemDao extends BaseDao {
 				u.setCaminhoCompleto(rs.getString("caminho_completo"));
 				u.setDataCadastro(rs.getDate("data_cadastro"));
 				u.setStatus(rs.getString("status"));
+				u.setUsuario(rs.getString("usuario"));
 			}
 			
 		}catch (Throwable e) {
@@ -157,14 +158,14 @@ public class ImagemDao extends BaseDao {
 	
 	
 	
-	public List<Imagem> buscarImagemsNovas(long idCliente) throws Throwable{
+	public List<Imagem> buscarImagemsNovas(long idCliente, long idUsuario) throws Throwable{
 		List<Imagem> us = new ArrayList<Imagem>();
 		try{
 			conectar();
 			
 			con.setTransactionIsolation(Connection.TRANSACTION_READ_UNCOMMITTED);
 			
-			String query = "select * from imagem where id_cliente=? and status='Novo' ORDER BY id ASC";
+			String query = "select * from imagem where id_cliente=? and status='Novo' and usuario='"+String.valueOf(idUsuario)+"' ORDER BY id ASC";
 			
 			pstm = con.prepareStatement(query);
 			
@@ -179,7 +180,8 @@ public class ImagemDao extends BaseDao {
 				u.setNome(rs.getString("nome"));
 				u.setCaminhoCompleto(rs.getString("caminho_completo"));
 				u.setDataCadastro(rs.getDate("data_cadastro"));
-				u.setStatus(rs.getString("status"));				
+				u.setStatus(rs.getString("status"));	
+				u.setUsuario(rs.getString("usuario"));
 				us.add(u);
 			}
 			
@@ -217,7 +219,8 @@ public class ImagemDao extends BaseDao {
 				u.setNome(rs.getString("nome"));
 				u.setCaminhoCompleto(rs.getString("caminho_completo"));
 				u.setDataCadastro(rs.getDate("data_cadastro"));
-				u.setStatus(rs.getString("status"));				
+				u.setStatus(rs.getString("status"));
+				u.setUsuario(rs.getString("usuario"));
 				us.add(u);
 			}
 			
@@ -259,8 +262,8 @@ public class ImagemDao extends BaseDao {
 	try{
 		conectar();
 		
-		String str = "insert into imagem(nome,caminho_completo,data_cadastro,id_cliente,status)" + 
-		" values(?,?,?,?,?)";
+		String str = "insert into imagem(nome,caminho_completo,data_cadastro,id_cliente,status,usuario)" + 
+		" values(?,?,?,?,?,?)";
 		
 		logger.debug(ReflectionToStringBuilder.toString(a, ToStringStyle.MULTI_LINE_STYLE));
 		
@@ -271,6 +274,7 @@ public class ImagemDao extends BaseDao {
 		pstm.setTimestamp(3, new Timestamp(System.currentTimeMillis()));
 		pstm.setInt(4, a.getIdCliente());
 		pstm.setString(5,"Novo");
+		pstm.setString(6,a.getUsuario());
 
 		int affectedRows = pstm.executeUpdate();
 		if (affectedRows == 0) {

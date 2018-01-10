@@ -179,11 +179,11 @@ public class PedidoBean implements Serializable{
 			pedido.setIdCliente(u.getIdCliente());
 			
 			ImagemDao iDao = new ImagemDao();
-			List<Imagem> lImagem = iDao.buscarImagemsNovas(u.getIdCliente());
+			List<Imagem> lImagem = iDao.buscarImagemsNovas(u.getIdCliente(),u.getId());
 			
 			if(lImagem.size() <= 0){
-				Utils.addMessageSucesso("Nenhuma imagem adicionada. Faça primeiramente o upload da imagem");
-				return "/pages/nota/notaAdd";
+				Utils.addMessageSucesso("Faça primeiramente o upload da imagem da prescrição médica");
+				return "/pages/pedido/pedidoAdd";
 			}else{
 				dao.adicionar(pedido,meds);
 				

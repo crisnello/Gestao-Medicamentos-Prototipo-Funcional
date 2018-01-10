@@ -19,6 +19,17 @@ public class Imagem implements Serializable {
 	
 	private String Status;
 	
+	private String usuario;
+	
+	
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
 	public String getStatus() {
 		return Status;
 	}

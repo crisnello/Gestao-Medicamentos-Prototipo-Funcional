@@ -118,6 +118,9 @@ public class ImagemBean implements Serializable {
 			imagem.setIdCliente(u.getIdCliente());
 			imagem.setNome("img"+dao.getNextIdImagem()+extensao);
 			imagem.setCaminhoCompleto("/FILES/"+cliente.getNome()+"/"+"img"+dao.getNextIdImagem()+extensao);
+			
+			imagem.setUsuario(String.valueOf(u.getId()));
+			
 			dao.adicionar(imagem);
 			Utils.addMessageSucesso("Imagem img"+dao.getNextIdImagem()+extensao + " adicionado com sucesso.");
 			atualizarImagens();
