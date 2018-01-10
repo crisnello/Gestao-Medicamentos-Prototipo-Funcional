@@ -51,8 +51,8 @@ public class ImagemBean implements Serializable {
     public void handleFileUpload(FileUploadEvent event) {
 //    	logger.debug("imagemBean.handleFileUpload");
     	try {
-	        FacesMessage msg = new FacesMessage("Sucesso", event.getFile().getFileName() + " foi salvo.");  
-	        FacesContext.getCurrentInstance().addMessage(null, msg);  
+	        FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,event.getFile().getFileName() + " foi salvo.","Sucesso");  
+	        FacesContext.getCurrentInstance().addMessage("sucesso", msg);  
 	        
 	        file = event.getFile();
 	        writeFile();
@@ -66,12 +66,16 @@ public class ImagemBean implements Serializable {
 	
     public void writeFile(){
     	
-    	//verificar para setar esse diretório na base ou properties ou configuração ou pegar pela raiz do contexto
-    	String tempDir = "C:/Users/f.negrello/eclipse-workspace/bradescosolicitaremedio/WebContent"; 
-    	//String tempDir = "/opt/glassfish3/glassfish/domains/domain1/applications/bradescosolicitaremedio/WebContent"; 
-    	
+    	String caminho = FacesContext.getCurrentInstance().getExternalContext().getRealPath("");
+//    	logger.debug(caminho);
     	
     	Object path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("/");
+//    	logger.debug(path.toString());
+    	
+    	String tempDir = "C:/Users/f.negrello/eclipse-workspace/bradescosolicitaremedio/WebContent"; 
+    	//String tempDir = caminho + "/WebContent"; 
+    	
+    	
     	
     	extensao = file.getFileName().substring(file.getFileName().lastIndexOf("."), file.getFileName().length());
     	ImagemDao dao = new ImagemDao();
@@ -87,7 +91,7 @@ public class ImagemBean implements Serializable {
         		tempDir = path.toString();
         	}
         	
-        	System.out.println("Diretorio das IMAGENS:"+tempDir);
+        	logger.debug("Diretorio das IMAGENS:"+tempDir);
         	//Utils.addMessageSucesso("Diretorio das IMAGENS:"+tempDir);
         	
         	File backupFile = new File(tempDir+"/FILES/"+cliente.getNome()+"/"+"img"+dao.getNextIdImagem()+extensao); 

@@ -166,6 +166,11 @@ public class PedidoBean implements Serializable{
 				return "/pages/pedido/pedidoAdd";
 			}*/
 			
+			if(pedido.getMedicamentos().size() == 0) {
+				Utils.addMessageSucesso("Selecione pelo menos um medicamento");
+				return "/pages/pedido/pedidoAdd";
+			}
+			
 	        //POG
 			ArrayList<Medicamento> meds = new ArrayList<Medicamento>();
 	        for(int i=0;i<pedido.getMedicamentos().size();i++) {
