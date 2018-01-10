@@ -51,7 +51,7 @@ public class ImagemBean implements Serializable {
     public void handleFileUpload(FileUploadEvent event) {
 //    	logger.debug("imagemBean.handleFileUpload");
     	try {
-	        FacesMessage msg = new FacesMessage("Sucesso", event.getFile().getFileName() + " foi uploaded.");  
+	        FacesMessage msg = new FacesMessage("Sucesso", event.getFile().getFileName() + " foi salvo.");  
 	        FacesContext.getCurrentInstance().addMessage(null, msg);  
 	        
 	        file = event.getFile();
