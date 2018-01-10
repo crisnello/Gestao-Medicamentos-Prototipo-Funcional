@@ -369,6 +369,22 @@
  								
 	 					</td>
  					</tr>
+ 					<tr>
+ 						<td><p class="font12px text-justify">clique na imagem para abrir	</p></td>
+ 					</tr>
+					<tr>
+						
+ 						 <ui:repeat var="img" value="#{pedidoBean.imagens}">
+ 						 		
+								<td colspan="2">
+								<a  href="../..#{img.caminhoCompleto}">
+									<h:graphicImage value="../..#{img.caminhoCompleto}"  width="200" height="200" cache="disable" />
+ 								</a>
+								
+								</td>
+								
+						</ui:repeat>
+ 					</tr>
  					
  					<tr>
 	 					<td colspan="2">

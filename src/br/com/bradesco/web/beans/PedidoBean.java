@@ -1,11 +1,9 @@
 package br.com.bradesco.web.beans;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -14,7 +12,9 @@ import javax.faces.event.AjaxBehaviorEvent;
 
 import org.apache.log4j.Logger;
 
+import br.com.bradesco.web.dao.ImagemDao;
 import br.com.bradesco.web.dao.PedidoDao;
+import br.com.bradesco.web.entitie.Imagem;
 import br.com.bradesco.web.entitie.Medicamento;
 import br.com.bradesco.web.entitie.Pedido;
 import br.com.bradesco.web.entitie.Usuario;
@@ -23,6 +23,8 @@ import br.com.bradesco.web.util.Utils;
 @ManagedBean(name="pedidoBean")
 @RequestScoped
 public class PedidoBean implements Serializable{
+	
+	private List<Imagem> imagens;
 
 	protected Logger logger = Logger.getLogger(this.getClass());
 	
@@ -32,7 +34,14 @@ public class PedidoBean implements Serializable{
 	
 	private Pedido pedido;
 	
-	
+	public List<Imagem> getImagens() {
+		return imagens;
+	}
+
+	public void setImagens(List<Imagem> imagens) {
+		this.imagens = imagens;
+	}
+
 	private List<String> med;
 	
 	public List<String> getMed() {
@@ -99,7 +108,12 @@ public class PedidoBean implements Serializable{
 			
 			PedidoDao dao = new PedidoDao();
 			
-			setPedido(dao.buscarPedido(Long.parseLong(id)));
+			Pedido pPedido = dao.buscarPedido(Long.parseLong(id));
+			
+			setPedido(pPedido);
+			
+			ImagemDao iDao = new ImagemDao();
+			setImagens(iDao.buscarImagemsByPedido(pPedido.getId()));
 		
 
 		}catch(Throwable e){
@@ -148,17 +162,11 @@ public class PedidoBean implements Serializable{
 			PedidoDao dao = new PedidoDao();
 			
 //			logger.debug(pedido.getMedicamentos());
-			
-			if(pedido.getNome().trim().equals("")) {
+/*			if(pedido.getNome().trim().equals("")) {
 				return "/pages/pedido/pedidoAdd";
-			}
+			}*/
 			
-/*			logger.debug(med.size());
-			for (String string : med) {
-				logger.debug(string);
-			}
-			logger.debug("MED");*/
-	        //POG - ARRUMAR depois
+	        //POG
 			ArrayList<Medicamento> meds = new ArrayList<Medicamento>();
 	        for(int i=0;i<pedido.getMedicamentos().size();i++) {
 //	        	logger.debug(Long.parseLong(""+pedido.getMedicamentos().get(i)));
@@ -170,7 +178,23 @@ public class PedidoBean implements Serializable{
 			//pedido do mesmo cliente
 			pedido.setIdCliente(u.getIdCliente());
 			
-			dao.adicionar(pedido,meds);
+			ImagemDao iDao = new ImagemDao();
+			List<Imagem> lImagem = iDao.buscarImagemsNovas(u.getIdCliente());
+			
+			if(lImagem.size() <= 0){
+				Utils.addMessageSucesso("Nenhuma imagem adicionada. Faça primeiramente o upload da imagem");
+				return "/pages/nota/notaAdd";
+			}else{
+				dao.adicionar(pedido,meds);
+				
+				//Inserindo e Processando todas imagens 
+				for(int z=0;z < lImagem.size();z++){
+					Imagem imagem = lImagem.get(z);
+					dao.adicionarPedidoImagem(pedido.getId(), imagem.getId());
+					iDao.updateStatus(imagem.getId(), "Inserido");
+				}
+			}
+			
 			
 			Utils.addMessageSucesso("Pedido adicionado com sucesso.");
 			atualizarpedidos();

@@ -45,16 +45,59 @@ public class PedidoDao extends BaseDao{
 		return u;
 	}
 	
+	public void adicionarPedidoImagem(long id_pedido,long id_imagem) throws Throwable{
+		
+		try{
+			conectar();
+			
+			String q1 = "insert into pedido_imagem(id_pedido,id_imagem)" +
+					" values(?,?)" ;
+			
+			//logger.debug(ReflectionToStringBuilder.toString(u, ToStringStyle.MULTI_LINE_STYLE));
+			
+			pstm = con.prepareStatement(q1);
+			
+			pstm.setLong(1, id_pedido);
+			pstm.setLong(2, id_imagem);
+	
+			
+			int affectedRows = pstm.executeUpdate();
+			if (affectedRows == 0) {
+	            throw new SQLException("Creating nota_imagem failed, no rows affected.");
+	        }
+	        
+		}catch (Throwable e) {
+			con.rollback();
+			logger.error("Erro processado adicionar PedidoImagem", e);
+			throw new DaoException(e.getMessage(), e.getCause());
+		}finally{
+			desconectar();
+		}
+		
+	}
+	
+	
 	public void excluir(long idPedido) throws Throwable{
 		try{
 			conectar();
 
-			String q1 = "delete from pedido_medicamento where id_pedido = ?" ; //verificar se não é melhor fazer o delete on cascade
+			//------verificar se não é melhor fazer o delete on cascade----
+			
+			String q1 = "delete from pedido_medicamento where id_pedido = ?" ; 
 			
 			pstm = con.prepareStatement(q1);
 			pstm.setLong(1, idPedido);
 			
 			pstm.executeUpdate();
+			
+			q1 = "delete from pedido_imagem where id_pedido = ?" ;
+			
+			pstm = con.prepareStatement(q1);
+			pstm.setLong(1, idPedido);
+			
+			pstm.executeUpdate();
+			
+			//------------------------------------------------------------
 
 			
 			String q2 = "delete from pedido where id = ?" ;
