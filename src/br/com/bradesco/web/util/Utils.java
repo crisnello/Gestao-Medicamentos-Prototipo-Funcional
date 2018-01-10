@@ -118,7 +118,7 @@ public class Utils {
 	public static String encaminharPara(){
 		Map<String, Boolean> permissoesSessao = (Map<String, Boolean>) buscarSessao("permissoes");
 		if(permissoesSessao.get("1")==true){
-			return "/pages/pedido/template";//return "/pages/monitoracao/monitoracao";
+			return "/pages/medicamento/template";//return "/pages/monitoracao/monitoracao";
 		}else if(permissoesSessao.get("2")==true){
 			return "/pages/pedido/template";
 		}else if(permissoesSessao.get("4")==true){
