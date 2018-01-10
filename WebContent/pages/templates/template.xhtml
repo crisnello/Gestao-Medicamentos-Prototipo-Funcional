@@ -8,7 +8,7 @@
       xmlns:p="http://primefaces.org/ui"
       >
   <h:head>
-    <title>Bradesco Seguros</title>
+    <title>Bradesco Seguros - Sistema Solicitação de Medicamentos</title>
     
     <meta name="description" content="Sistema para Bradesco" />
 	<meta name="keywords" content=" monitoração, monitoracao, histórico, historico" />
@@ -31,17 +31,14 @@
 		var enderecoUsuario = "#{usuario.endereco} #{usuario.numero}, #{usuario.cidade} - #{usuario.uf}";
 	</script>
 	
-    <script type="text/javascript" src="#{request.contextPath}/assets/js/jquery.json-2.2.min.js"></script>
-    <script type="text/javascript" src="#{request.contextPath}/assets/js/sys_funcoes.js?v=#{appBean.versao}"></script>
-    <script type="text/javascript" src="#{request.contextPath}/assets/js/jquery.minmax-compressed.js?v=#{appBean.versao}"></script>
+	<script type="text/javascript" src="#{request.contextPath}/assets/js/jquery.json-2.2.min.js"></script>
+    <script type="text/javascript" src="#{request.contextPath}/assets/js/jquery.minmax-compressed.js?v=#{appBean.versao}"></script> 
     
+	<script type="text/javascript" src="#{request.contextPath}/assets/js/sys_funcoes.js?v=#{appBean.versao}"></script>
     <script type="text/javascript" src="#{request.contextPath}/assets/js/bradseg_scripts.min.js?v=#{appBean.versao}"></script>
-    
     
     <ui:insert name="js">
 	</ui:insert>
-	
-	
 	
   </h:head>
   <h:body >

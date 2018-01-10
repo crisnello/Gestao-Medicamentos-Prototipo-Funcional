@@ -3,11 +3,11 @@ $(document).ready(function() {
  	td_hover($("#hor-minimalist-a td"));
  	
 /* 	$('#form_pedido_add').on('submit',function(){
- 	    alert('jquery');
+ 	    alert($("#nome").val());
  		changeClass('input_nome',"form-group error");
  		$("#input_nome").classList.add("error");
- 	});
-*/ 	  
+ 	});*/
+ 	  
 /* 	    $('input[id^="chk_"]').click(function() {
  	    	 str = "[";
 	 	  	  
