@@ -17,20 +17,18 @@
     	 		<ui:define name="menu_esquerdo">
 		 			<div class="novo">
 		 				<h:form>
-							
 							<h:commandButton value="Novo Pedido" action="#{pedidoBean.pedidoAdd}" ajax="false" icon="ui-icon-plus" styleClass="bradseg-btn small blue"/>			
 		 				</h:form>
 					</div>
 					<h:form>
 						<table id="hor-minimalist-a" cellspacing="0">
-							<thead>
-							<tr>
-								<th scope="col" align="left">PEDIDOS CADASTRADOS</th>
-								<th align="right">
-									<!-- <h:graphicImage url="/assets/images/icons/grey/lab.png"/> -->
-									<i class="icons-content icon-info-informar font42px font-red elem-left"></i>
-								</th>
-							</tr>
+							<thead> 
+								<tr>
+									<th scope="col" align="left">PEDIDOS CADASTRADOS</th>
+									<th align="right">
+										<i class="icons-content icon-info-informar font42px font-red elem-left"></i>
+									</th>
+								</tr>
 							</thead>
 							<tbody>
 								<ui:repeat var="u" value="#{pedidoBean.pedidos}">
