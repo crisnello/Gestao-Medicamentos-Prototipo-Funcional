@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	
 	selecionarAba('aba_pedidos');
  	td_hover($("#hor-minimalist-a td"));
  	

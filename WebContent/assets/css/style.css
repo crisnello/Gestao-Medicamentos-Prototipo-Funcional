@@ -23,7 +23,8 @@ p  { margin: 0 0 15px; line-height: 1.7em; }
 #menu { height: 15px; font-weight: bold;}
 #menu li { display: inline; }
 #menu li a { float: left; text-align: center; margin: 0 2px 0 0; font-size: 19px; padding: 13px 10px 10px; color: #CCC; }
-#menu li a:hover, #menu li a.current { color: white; height: 14px; }
+#menu li a:hover { color: black; height: 14px; }
+#menu li a.current { color: red; height: 14px; }
 
 /** feature menu pequeno */
 #logo { float: left; margin: 40px 0 0; }

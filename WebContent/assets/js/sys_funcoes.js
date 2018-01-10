@@ -151,7 +151,8 @@ function limparVariaveis(){
 }
 
 function selecionarAba(aba) {
-	changeClass(aba, "nav-abas-btn selected");
+	//alert(aba);
+	changeClass(aba, "nav-abas-btn selected current");
 }
 
 function processar_resize_map(){
