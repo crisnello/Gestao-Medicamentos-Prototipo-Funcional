@@ -260,7 +260,9 @@
 													     <c:set var="isSelected" value="false" /> 
 													     <c:forEach var="field" items="${pedidoBean.pedido.medicamentos}">
 													     		  <!-- #{m.id} - #{field} -->
-													     		   <c:if test="${m.id == field}"> 	 
+<!-- 													     		  <h:outputText value="#{m.id.class}"/> - 
+													     		  <h:outputText value="#{field.class}"/> -->
+													     		   <c:if test="${m.id eq field}"> 	 
 															       	<c:set var="isSelected" value="true" /> 
 															      </c:if> 
 													     </c:forEach> 

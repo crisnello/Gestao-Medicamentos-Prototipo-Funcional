@@ -160,11 +160,7 @@ public class PedidoBean implements Serializable{
 		try{
 			Usuario u = (Usuario) Utils.buscarSessao("usuario");
 			PedidoDao dao = new PedidoDao();
-			
-//			logger.debug(pedido.getMedicamentos());
-/*			if(pedido.getNome().trim().equals("")) {
-				return "/pages/pedido/pedidoAdd";
-			}*/
+
 			
 			if(pedido.getMedicamentos().size() == 0) {
 				Utils.addMessageSucesso("Selecione pelo menos um medicamento");
@@ -177,6 +173,14 @@ public class PedidoBean implements Serializable{
 //	        	logger.debug(Long.parseLong(""+pedido.getMedicamentos().get(i)));
 	        	meds.add(new Medicamento(Long.parseLong(""+pedido.getMedicamentos().get(i))));
 	        }
+			
+//			logger.debug("MEDICAMENTOS size = "+pedido.getId_medicamentos().size());
+			
+/*			ArrayList<Medicamento> meds = new ArrayList<Medicamento>();
+	        for(int i=0;i<pedido.getId_medicamentos().size();i++) {
+	        	Long pIdMed = Long.valueOf(""+pedido.getId_medicamentos().get(i));
+	        	meds.add(new Medicamento(pIdMed.longValue()));
+	        }*/
 			
 			pedido.setNumero_pedido(String.valueOf((new Date()).getTime()));
 			
