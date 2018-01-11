@@ -66,16 +66,12 @@ public class ImagemBean implements Serializable {
 	
     public void writeFile(){
     	
-    	String caminho = FacesContext.getCurrentInstance().getExternalContext().getRealPath("");
-//    	logger.debug(caminho);
     	
-    	Object path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("/");
+    	Object path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("/WebContent");
 //    	logger.debug(path.toString());
     	
     	String tempDir = "C:/Users/f.negrello/eclipse-workspace/bradescosolicitaremedio/WebContent"; 
-    	//String tempDir = caminho + "/WebContent"; 
-    	
-    	
+    	//String tempDir = caminho + "/WebContent";
     	
     	extensao = file.getFileName().substring(file.getFileName().lastIndexOf("."), file.getFileName().length());
     	ImagemDao dao = new ImagemDao();
@@ -91,7 +87,7 @@ public class ImagemBean implements Serializable {
         		tempDir = path.toString();
         	}
         	
-        	logger.debug("Diretorio das IMAGENS:"+tempDir);
+        	logger.debug("Diretorio das IMAGENS:"+tempDir+"/FILES/"+cliente.getNome()+"/");
         	//Utils.addMessageSucesso("Diretorio das IMAGENS:"+tempDir);
         	
         	File backupFile = new File(tempDir+"/FILES/"+cliente.getNome()+"/"+"img"+dao.getNextIdImagem()+extensao); 
