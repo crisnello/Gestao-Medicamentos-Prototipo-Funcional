@@ -149,6 +149,7 @@ public class MedicamentoDao extends BaseDao{
 			while(rs.next()){
 				Medicamento u = new Medicamento();
 				u.setId(rs.getLong("id"));
+				
 				u.setEan(rs.getString("ean"));
 				u.setMedicamento(rs.getString("medicamento"));
 				u.setApresentacao(rs.getString("apresentacao"));

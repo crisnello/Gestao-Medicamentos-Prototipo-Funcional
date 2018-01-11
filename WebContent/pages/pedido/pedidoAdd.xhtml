@@ -236,7 +236,6 @@
 							</div>
  						</td>
  					</tr>
-
  					
  					<tr>
  						<td colspan="4">
@@ -256,8 +255,30 @@
 												<tr>
 										            <td class="col-md-1 col-sm-1 col-xs-12 text-center">
 										                <div class="">
-															<input id="form_pedido_add:medicamentos:#{status.index}" name="form_pedido_add:medicamentos" value="#{m.id}" type="checkbox"   />
-														    <label for="form_pedido_add:medicamentos:#{status.index}"><span class="checkBox"><span class="icon-chk" ></span></span></label>
+										                
+										                 
+													     <c:set var="isSelected" value="false" /> 
+													     <c:forEach var="field" items="${pedidoBean.pedido.medicamentos}">
+													     		  <!-- #{m.id} - #{field} -->
+													     		   <c:if test="${m.id == field}"> 	 
+															       	<c:set var="isSelected" value="true" /> 
+															      </c:if> 
+													     </c:forEach> 
+													     <c:if test="${isSelected}"> 
+													      <input id="form_pedido_add:medicamentos:#{status.index}" name="form_pedido_add:medicamentos" value="#{m.id}" type="checkbox" checked="true" />
+														    <label for="form_pedido_add:medicamentos:#{status.index}"><span class="checkBox"><span class="icon-chk" ></span></span></label> 
+													     </c:if> 
+													     <c:if test="${!isSelected}"> 
+													     	<input id="form_pedido_add:medicamentos:#{status.index}" name="form_pedido_add:medicamentos" value="#{m.id}" type="checkbox" />
+														    <label for="form_pedido_add:medicamentos:#{status.index}"><span class="checkBox"><span class="icon-chk" ></span></span></label> 
+													     </c:if> 
+										                
+										                
+				                							
+															<!-- 
+															<input id="form_pedido_add:medicamentos:#{status.index}" name="form_pedido_add:medicamentos" value="#{m.id}" type="checkbox" />
+														    <label for="form_pedido_add:medicamentos:#{status.index}"><span class="checkBox"><span class="icon-chk" ></span></span></label> 
+														    -->
 														</div>
 													</td>
 										            <td class="col-md-2 col-sm-2 col-xs-12">#{m.ean}</td>

@@ -9,6 +9,8 @@ public class Medicamento implements Serializable{
 
 	private long id;
 	
+	
+	
 	private String ean;
 	
 	private String medicamento;
@@ -31,6 +33,7 @@ public class Medicamento implements Serializable{
 	public String toString() {
 		return getId() + " - "+getEan()+" - "+getMedicamento();
 	}
+
 
 	public long getId() {
 		return id;
