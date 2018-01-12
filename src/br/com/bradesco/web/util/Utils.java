@@ -11,6 +11,17 @@ import javax.servlet.http.HttpSession;
 
 public class Utils {
 	
+	public static long getIdade(Date data) {
+		Calendar cData = Calendar.getInstance();
+		Calendar cHoje= Calendar.getInstance();
+		cData.setTime(data);
+		cData.set(Calendar.YEAR, cHoje.get(Calendar.YEAR));
+		long idade = cData.after(cHoje) ? -1 : 0;
+		cData.setTime(data);
+		idade += cHoje.get(Calendar.YEAR) - cData.get(Calendar.YEAR);
+		return idade;
+	}
+	
 	/**
 	 * adiciona uma mensagem no contexto do jsf
 	 * @param msg - mensagem

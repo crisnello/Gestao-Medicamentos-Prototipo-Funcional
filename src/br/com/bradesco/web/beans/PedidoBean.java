@@ -144,7 +144,9 @@ public class PedidoBean implements Serializable{
 				return "/pages/pedido/pedidoEditar";
 			}*/
 			
-			logger.debug(pedido.getReceita());
+//			logger.debug(pedido.getReceita());
+			
+//			pedido.setIdade(Utils.getIdade(pedido.getDataNasc()));
 			
 			//pedido do mesmo cliente
 			pedido.setIdCliente(u.getIdCliente());
@@ -186,6 +188,9 @@ public class PedidoBean implements Serializable{
 	        	Long pIdMed = Long.valueOf(""+pedido.getId_medicamentos().get(i));
 	        	meds.add(new Medicamento(pIdMed.longValue()));
 	        }*/
+	        
+	        
+	        pedido.setIdade(Utils.getIdade(pedido.getDataNasc()));
 			
 			pedido.setNumero_pedido(String.valueOf((new Date()).getTime()));
 			

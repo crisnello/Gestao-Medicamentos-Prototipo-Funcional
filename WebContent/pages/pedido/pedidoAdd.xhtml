@@ -19,8 +19,8 @@
  						<td >
 		 					<div class="form-group">
 		 						<h:outputLabel value="Data da receita" for="receita" styleClass="ui-outputlabel"/>
-	 							<!-- <p:inputText value="#{pedidoBean.pedido.receita}" id="receita" size="10" maxlength="10" mask="99/99/9999"  required="true" requiredMessage="O campo receita é obrigatório." styleClass="small full-width"/> -->
-	 							<p:calendar id="receita" value="#{pedidoBean.pedido.dataReceita}"  size="35" maxlength="10" pattern="dd/MM/yyyy" mask="true" styleClass="small full-width" required="true" requiredMessage="O campo receita é obrigatório." />
+	 							<!-- <p:inputText value="#{pedidoBean.pedido.receita}" id="receita" size="10" maxlength="10" mask="99/99/9999"  required="true" requiredMessage="O campo receita é obrigatório." styleClass="small  "/> -->
+	 							<p:calendar id="receita" value="#{pedidoBean.pedido.dataReceita}"  size="35" maxlength="10" pattern="dd/MM/yyyy" mask="true" styleClass="small  " required="true" requiredMessage="O campo receita é obrigatório." />
 	 						</div>
 	 					</td>
 				</tr>
@@ -71,20 +71,20 @@
  						<td>
  							<div id="input_nome" class="form-group">
 	 							<h:outputLabel value="Nome" for="nome" styleClass="ui-outputlabel"/>
-	 							<p:inputText value="#{pedidoBean.pedido.nome}" id="nome" name="nome" size="40" maxlength="50" required="true" requiredMessage="O campo nome é obrigatório."  styleClass="small full-width"/>
+	 							<p:inputText value="#{pedidoBean.pedido.nome}" id="nome" name="nome" size="40" maxlength="50" required="true" requiredMessage="O campo nome é obrigatório."  styleClass="small "/>
 	 							<span class="msg-error">O campo nome é obrigatório.</span>
  							</div>
  						</td>
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="Cartão" for="numero_cartao" styleClass="ui-outputlabel"/>
- 							<p:inputMask value="#{pedidoBean.pedido.numero_cartao}" id="numero_cartao" size="25" maxlength="25" required="true" requiredMessage="O campo Número do cartão é obrigatório." styleClass="small full-width" />
+ 							<p:inputMask value="#{pedidoBean.pedido.numero_cartao}" id="numero_cartao" size="25" maxlength="25" required="true" requiredMessage="O campo Número do cartão é obrigatório." styleClass="small " />
  							</div>
  						</td>
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="CPF" for="cpf"  styleClass="ui-outputlabel"/>
- 							<p:inputMask value="#{pedidoBean.pedido.cpf}" id="cpf" size="15" maxlength="16" mask="999.999.999-99" required="true" requiredMessage="O campo CPF é obrigatório." styleClass="small full-width"/>
+ 							<p:inputMask value="#{pedidoBean.pedido.cpf}" id="cpf" size="15" maxlength="16" mask="999.999.999-99" required="true" requiredMessage="O campo CPF é obrigatório." styleClass="small"/>
  							</div>
  						</td>
  					</tr>
@@ -93,13 +93,13 @@
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="Telefone" for="telefone" styleClass="ui-outputlabel"/>
- 							<p:inputMask value="#{pedidoBean.pedido.telefone}" id="telefone" size="15" maxlength="13" mask="(99)9999-9999" required="true" requiredMessage="O campo Telefone é obrigatório." styleClass="small full-width"/>
+ 							<p:inputMask value="#{pedidoBean.pedido.telefone}" id="telefone" size="15" maxlength="13" mask="(99)9999-9999" required="true" requiredMessage="O campo Telefone é obrigatório." styleClass="small "/>
  							</div>
  						</td>
  						<td colspan="2">
  						<div class="form-group">
  							<h:outputLabel value="Email" for="email" styleClass="ui-outputlabel"/>
- 							<p:inputText value="#{pedidoBean.pedido.email}" id="email" size="40" maxlength="30" required="true" requiredMessage="O campo email é obrigatório." validator="emailValidator" styleClass="small full-width">
+ 							<p:inputText value="#{pedidoBean.pedido.email}" id="email" size="40" maxlength="30" required="true" requiredMessage="O campo email é obrigatório." validator="emailValidator" styleClass="small  ">
  							</p:inputText>
  							</div>
  						</td>
@@ -109,10 +109,10 @@
 	 					<td>
 	 					<div class="form-group">
 	 					<h:outputLabel value="Data de Nascimento" for="dataNasc" styleClass="ui-outputlabel"/>
-	 						<p:calendar id="dataNasc" value="#{pedidoBean.pedido.dataNasc}"  size="35" maxlength="10" pattern="dd/MM/yyyy" mask="true" styleClass="small full-width" required="true" requiredMessage="O campo data é obrigatório." >
+	 						<p:calendar id="dataNasc" value="#{pedidoBean.pedido.dataNasc}"  size="35" maxlength="10" pattern="dd/MM/yyyy" mask="true" styleClass="small  " required="true" requiredMessage="O campo data é obrigatório." >
 	 							<f:convertDateTime />
 	 						</p:calendar>
-<!--  							<p:inputMask value="#{pedidoBean.pedido.dataNasc}" id="dataNasc" size="10" maxlength="10" mask="99/99/9999"  required="true" requiredMessage="O campo Data de Nascimento é obrigatório." styleClass="small full-width">
+<!--  							<p:inputMask value="#{pedidoBean.pedido.dataNasc}" id="dataNasc" size="10" maxlength="10" mask="99/99/9999"  required="true" requiredMessage="O campo Data de Nascimento é obrigatório." styleClass="small  ">
  								<f:convertDateTime />
  							</p:inputMask>
  -->	 					</div>
@@ -120,7 +120,7 @@
 	 					<td style="display: none;">
 	 					<div class="form-group">
  							<h:outputLabel value="Idade" for="idade" styleClass="ui-outputlabel"/>
- 							<p:inputText value="#{pedidoBean.pedido.idade}" id="idade" size="8" maxlength="5"  required="true" requiredMessage="O campo Idade é obrigatório." styleClass="small full-width">
+ 							<p:inputText value="#{pedidoBean.pedido.idade}" id="idade" size="8" maxlength="5"  required="true" requiredMessage="O campo Idade é obrigatório." styleClass="small  ">
  								<f:convertNumber />
  							</p:inputText>
  							</div>
@@ -143,7 +143,7 @@
  						<td colspan="2">
  						<div class="form-group">
  							<h:outputLabel value="CEP" for="cep" styleClass="ui-outputlabel"/>
- 							<p:inputMask value="#{pedidoBean.pedido.cep}" id="cep" size="15" maxlength="10" mask="99999-999" required="true" requiredMessage="O campo CEP é obrigatório." styleClass="small full-width">
+ 							<p:inputMask value="#{pedidoBean.pedido.cep}" id="cep" size="15" maxlength="10" mask="99999-999" required="true" requiredMessage="O campo CEP é obrigatório." styleClass="small  ">
  								<f:ajax listener="#{pedidoBean.buscarCEP}" render="endereco cidade uf" event="blur"/>
  							</p:inputMask>
  							</div>
@@ -154,13 +154,13 @@
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="Endereço" for="endereco" styleClass="ui-outputlabel"/>
- 							<p:inputText value="#{pedidoBean.pedido.endereco}" id="endereco" size="40" maxlength="100" required="true" requiredMessage="O campo Endereço é obrigatório." styleClass="small full-width"/>
+ 							<p:inputText value="#{pedidoBean.pedido.endereco}" id="endereco" size="40" maxlength="100" required="true" requiredMessage="O campo Endereço é obrigatório." styleClass="small  "/>
  							</div>
  						</td>
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="Número" for="numero" styleClass="ui-outputlabel"/>
- 							<p:inputText value="#{pedidoBean.pedido.numero}" id="numero" size="15" maxlength="8"  styleClass="small full-width">
+ 							<p:inputText value="#{pedidoBean.pedido.numero}" id="numero" size="15" maxlength="8"  styleClass="small  ">
  								<f:convertNumber />
  							</p:inputText>
  							</div>
@@ -173,13 +173,13 @@
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="Cidade" for="cidade" styleClass="ui-outputlabel"/>
- 							<p:inputText value="#{pedidoBean.pedido.cidade}" id="cidade" size="40" maxlength="70" required="true" requiredMessage="O campo Cidade é obrigatório." styleClass="small full-width"/>
+ 							<p:inputText value="#{pedidoBean.pedido.cidade}" id="cidade" size="40" maxlength="70" required="true" requiredMessage="O campo Cidade é obrigatório." styleClass="small  "/>
  							</div>
  						</td>
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="UF" for="uf" styleClass="ui-outputlabel"/>
- 							<p:inputText value="#{pedidoBean.pedido.uf}" id="uf" size="4" maxlength="2" required="true" requiredMessage="O campo UF é obrigatório." styleClass="small full-width"/>
+ 							<p:inputText value="#{pedidoBean.pedido.uf}" id="uf" size="4" maxlength="2" required="true" requiredMessage="O campo UF é obrigatório." styleClass="small  "/>
  							</div>
  						</td>
  					</tr>
@@ -187,19 +187,19 @@
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="Peso" for="peso" styleClass="ui-outputlabel"/>
- 							<p:inputMask value="#{pedidoBean.pedido.peso}" id="peso" size="8" maxlength="4"  mask="999,99" required="true" requiredMessage="O campo Peso é obrigatório."  styleClass="small full-width"/>
+ 							<p:inputMask value="#{pedidoBean.pedido.peso}" id="peso" size="8" maxlength="4"  mask="999,99" required="true" requiredMessage="O campo Peso é obrigatório."  styleClass="small  "/>
  							</div>
  						</td>
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="Altura" for="altura" styleClass="ui-outputlabel"/>
- 							<p:inputMask value="#{pedidoBean.pedido.altura}" id="altura" size="6" maxlength="6" mask="9,99" required="true" requiredMessage="O campo Altura é obrigatório." styleClass="small full-width"/>
+ 							<p:inputMask value="#{pedidoBean.pedido.altura}" id="altura" size="6" maxlength="6" mask="9,99" required="true" requiredMessage="O campo Altura é obrigatório." styleClass="small  "/>
  							</div>
  						</td>
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="Superfície corporal" for="superficie_corporal" styleClass="ui-outputlabel"/>
- 							<p:inputMask value="#{pedidoBean.pedido.superficie_corporal}" id="superficie_corporal" size="40" maxlength="40" required="true" requiredMessage="O campo Superfície corporal é obrigatório." styleClass="small full-width"/>
+ 							<p:inputMask value="#{pedidoBean.pedido.superficie_corporal}" id="superficie_corporal" size="40" maxlength="40" required="true" requiredMessage="O campo Superfície corporal é obrigatório." styleClass="small  "/>
  							</div>
  						</td>
  					</tr>
@@ -207,25 +207,25 @@
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="Diagnóstico" for="diagnostico" styleClass="ui-outputlabel"/>
- 							<p:inputMask value="#{pedidoBean.pedido.diagnostico}" id="diagnostico" size="40" maxlength="40" required="true" requiredMessage="O campo Diagnóstico é obrigatório." styleClass="small full-width"/>
+ 							<p:inputMask value="#{pedidoBean.pedido.diagnostico}" id="diagnostico" size="40" maxlength="40" required="true" requiredMessage="O campo Diagnóstico é obrigatório." styleClass="small  "/>
  							</div>
  						</td>
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="UF Médico" for="uf_medico" styleClass="ui-outputlabel"/>
- 							<p:inputText value="#{pedidoBean.pedido.uf_medico}" id="uf_medico" size="3" maxlength="2" required="true" requiredMessage="O campo UF Médico é obrigatório." styleClass="small full-width"/>
+ 							<p:inputText value="#{pedidoBean.pedido.uf_medico}" id="uf_medico" size="3" maxlength="2" required="true" requiredMessage="O campo UF Médico é obrigatório." styleClass="small  "/>
  							</div>
  						</td>
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="Médico" for="medico" styleClass="ui-outputlabel"/>
- 							<p:inputMask value="#{pedidoBean.pedido.medico}" id="medico" size="40" maxlength="40" required="true" requiredMessage="O campo Médico é obrigatório. " styleClass="small full-width"/>
+ 							<p:inputMask value="#{pedidoBean.pedido.medico}" id="medico" size="40" maxlength="40" required="true" requiredMessage="O campo Médico é obrigatório. " styleClass="small  "/>
  							</div>
  						</td>
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="CRM" for="crm_medico" styleClass="ui-outputlabel"/>
- 							<p:inputMask value="#{pedidoBean.pedido.crm_medico}" id="crm_medico" size="15" maxlength="15" required="true" requiredMessage="O campo CRM do Médico é obrigatório." styleClass="small full-width"/>
+ 							<p:inputMask value="#{pedidoBean.pedido.crm_medico}" id="crm_medico" size="15" maxlength="15" required="true" requiredMessage="O campo CRM do Médico é obrigatório." styleClass="small  "/>
  							</div>
  						</td>
  						
@@ -236,7 +236,7 @@
  						<div class="form-group">
 								<h:outputLabel value="Medicamentos" for="medicamentos" styleClass="ui-outputlabel"/>
 								<p class="font12px text-justify">utilize Ctrl para selecionar mais de um medicamento	</p>
-								<table class="bradseg-table full-width" width="100%" border="0" >
+								<table class="bradseg-table  " width="100%" border="0" >
 										    <thead class="hidden-xs">
 										        <tr>
 										            <!-- <th class="col-md-1 text-center"></th> -->
@@ -267,7 +267,7 @@
 	 						<div class="form-group">
 								<h:outputLabel value="Medicamentos" for="medicamentos" styleClass="ui-outputlabel"/>
 								
-									<table class="bradseg-table full-width" width="100%" >
+									<table class="bradseg-table  " width="100%" >
 									    <thead class="hidden-xs">
 									        <tr>
 									            <th class="col-md-1 text-center"></th>
@@ -280,7 +280,7 @@
 									    	<tr>
 										      <td class="col-md-1 col-sm-1 col-xs-12 text-left">
 										       
-													<h:selectManyCheckbox id="medicamentos" value="#{pedidoBean.pedido.medicamentos}" size="7" styleClass="full-width checkbox  " layout="pageDirection">
+													<h:selectManyCheckbox id="medicamentos" value="#{pedidoBean.pedido.medicamentos}" size="7" styleClass="  checkbox  " layout="pageDirection">
 						 								<f:selectItems value="#{medicamentoBean.medicamentos}" id="med_#{status.index}" var="med" itemLabel="#{med.ean} - #{med.medicamento} /  #{med.apresentacao}" itemValue="#{med.id}"  ></f:selectItems>
 											        </h:selectManyCheckbox>
 											   
@@ -296,7 +296,7 @@
  						<td colspan="4">
  								<h:outputLabel value="Medicamentos" for="medicamentos" styleClass="ui-outputlabel"/>
  							
-		 						<table class="bradseg-table full-width" width="100%" id="form_pedido_add:medicamentos">
+		 						<table class="bradseg-table  " width="100%" id="form_pedido_add:medicamentos">
 								    <thead class="hidden-xs">
 								        <tr>
 								            <th class="col-md-1 text-center"></th>
@@ -353,7 +353,7 @@
 	 					<td>
 	 					<div class="form-group">
  							<h:outputLabel value="CID" for="cid" styleClass="ui-outputlabel"/>
- 							<p:inputText value="#{pedidoBean.pedido.cid}" id="cid" size="8" maxlength="8"  required="true" requiredMessage="O campo CID é obrigatório." styleClass="small full-width">
+ 							<p:inputText value="#{pedidoBean.pedido.cid}" id="cid" size="8" maxlength="8"  required="true" requiredMessage="O campo CID é obrigatório." styleClass="small  ">
  								<f:convertNumber />
  							</p:inputText>
  							</div>
@@ -361,7 +361,7 @@
 	 					<td>
 	 					<div class="form-group">
 	 						<h:outputLabel value="Procedimento" for="procedimento" styleClass="ui-outputlabel"/>
- 							<p:inputMask value="#{pedidoBean.pedido.procedimento}" id="procedimento" size="35" maxlength="35" required="true" requiredMessage="O campo Procedimento é obrigatório." styleClass="small full-width"/>
+ 							<p:inputMask value="#{pedidoBean.pedido.procedimento}" id="procedimento" size="35" maxlength="35" required="true" requiredMessage="O campo Procedimento é obrigatório." styleClass="small  "/>
  							</div>
 	 					</td>
 	 				
@@ -371,13 +371,13 @@
 	 					<td>
 	 					<div class="form-group">
 	 						<h:outputLabel value="Regime" for="regime" styleClass="ui-outputlabel"/>
- 							<p:inputMask value="#{pedidoBean.pedido.regime}" id="regime" size="10" maxlength="10" required="true" requiredMessage="O campo Regime é obrigatório." styleClass="small full-width"/>
+ 							<p:inputMask value="#{pedidoBean.pedido.regime}" id="regime" size="10" maxlength="10" required="true" requiredMessage="O campo Regime é obrigatório." styleClass="small  "/>
  							</div>
 	 					</td>
 	 					<td>
 	 					<div class="form-group">
  							<h:outputLabel value="Quantidade" for="quantidade" styleClass="ui-outputlabel"/>
- 							<p:inputText value="#{pedidoBean.pedido.quantidade}" id="quantidade" size="8" maxlength="8" required="true" requiredMessage="O campo Quantidade é obrigatório." styleClass="small full-width">
+ 							<p:inputText value="#{pedidoBean.pedido.quantidade}" id="quantidade" size="8" maxlength="8" required="true" requiredMessage="O campo Quantidade é obrigatório." styleClass="small  ">
  								<f:convertNumber />
  							</p:inputText>
  							</div>

@@ -21,19 +21,19 @@
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="Nome" for="nome" styleClass="ui-outputlabel"/>
- 							<p:inputText value="#{pedidoBean.pedido.nome}" id="nome" size="40" maxlength="50" required="true" requiredMessage="O campo nome é obrigatório." styleClass="small full-width"/>
+ 							<p:inputText value="#{pedidoBean.pedido.nome}" id="nome" size="40" maxlength="50" required="true" requiredMessage="O campo nome é obrigatório." styleClass="small "/>
  							</div>
  						</td>
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="Cartão" for="numero_cartao" styleClass="ui-outputlabel"/>
- 							<p:inputMask value="#{pedidoBean.pedido.numero_cartao}" id="numero_cartao" size="25" maxlength="25" required="true" requiredMessage="O campo Número do cartão é obrigatório." styleClass="small full-width"/>
+ 							<p:inputMask value="#{pedidoBean.pedido.numero_cartao}" id="numero_cartao" size="25" maxlength="25" required="true" requiredMessage="O campo Número do cartão é obrigatório." styleClass="small "/>
  							</div>
  						</td>
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="CPF" for="cpf"  styleClass="ui-outputlabel"/>
- 							<p:inputMask value="#{pedidoBean.pedido.cpf}" id="cpf" size="15" maxlength="16" mask="999.999.999-99" required="true" requiredMessage="O campo CPF é obrigatório." styleClass="small full-width"/>
+ 							<p:inputMask value="#{pedidoBean.pedido.cpf}" id="cpf" size="15" maxlength="16" mask="999.999.999-99" required="true" requiredMessage="O campo CPF é obrigatório." styleClass="small "/>
  							</div>
  						</td>
  					</tr>
@@ -42,13 +42,13 @@
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="Telefone" for="telefone" styleClass="ui-outputlabel"/>
- 							<p:inputMask value="#{pedidoBean.pedido.telefone}" id="telefone" size="15" maxlength="13" mask="(99)9999-9999" required="true" requiredMessage="O campo Telefone é obrigatório." styleClass="small full-width"/>
+ 							<p:inputMask value="#{pedidoBean.pedido.telefone}" id="telefone" size="15" maxlength="13" mask="(99)9999-9999" required="true" requiredMessage="O campo Telefone é obrigatório." styleClass="small "/>
  							</div>
  						</td>
  						<td colspan="2">
  						<div class="form-group">
  							<h:outputLabel value="Email" for="email" styleClass="ui-outputlabel"/>
- 							<p:inputText value="#{pedidoBean.pedido.email}" id="email" size="40" maxlength="30" required="true" requiredMessage="O campo email é obrigatório." validator="emailValidator" styleClass="small full-width" >
+ 							<p:inputText value="#{pedidoBean.pedido.email}" id="email" size="40" maxlength="30" required="true" requiredMessage="O campo email é obrigatório." validator="emailValidator" styleClass="small " >
  							</p:inputText>
  							</div>
  						</td>
@@ -58,10 +58,10 @@
 	 					<td>
 	 					<div class="form-group">
 	 						<h:outputLabel value="Data de Nascimento" for="dataNasc" styleClass="ui-outputlabel"/>
-<!--  							<p:inputMask value="#{pedidoBean.pedido.dataNasc}" id="dataNasc" size="10" maxlength="10" mask="99/99/9999"  required="true" requiredMessage="O campo Data de Nascimento é obrigatório." styleClass="small full-width">
+<!--  							<p:inputMask value="#{pedidoBean.pedido.dataNasc}" id="dataNasc" size="10" maxlength="10" mask="99/99/9999"  required="true" requiredMessage="O campo Data de Nascimento é obrigatório." styleClass="small  ">
  								<f:convertDateTime />
  							</p:inputMask> -->
- 							<p:calendar id="dataNasc" value="#{pedidoBean.pedido.dataNasc}"  size="35" maxlength="10" pattern="dd/MM/yyyy" mask="true" styleClass="small full-width" required="true" requiredMessage="O campo data é obrigatório." >
+ 							<p:calendar id="dataNasc" value="#{pedidoBean.pedido.dataNasc}"  size="35" maxlength="10" pattern="dd/MM/yyyy" mask="true" styleClass="small  " required="true" requiredMessage="O campo data é obrigatório." >
 	 							<f:convertDateTime />
 	 						</p:calendar>
  							</div>
@@ -69,16 +69,18 @@
 	 					<td>
 	 					<div class="form-group">
  							<h:outputLabel value="Idade" for="idade" styleClass="ui-outputlabel"/>
- 							<p:inputText value="#{pedidoBean.pedido.idade}" id="idade" size="8" maxlength="5"  required="true" requiredMessage="O campo Idade é obrigatório." styleClass="small full-width">
+<!--  							<p:inputText value="#{pedidoBean.pedido.idade}" id="idade" size="5" maxlength="5"  required="true" requiredMessage="O campo Idade é obrigatório." styleClass="small">
  								<f:convertNumber />
- 							</p:inputText>
+ 							</p:inputText> -->
+ 							 <h:inputText value="#{pedidoBean.pedido.idade}" id="idade" size="5" maxlength="5"  disabled="true"  styleClass="small" />
+ 								
  							</div>
  						</td>
 	 				
 	 						<td>
 	 							<div class="form-group">
 	 							<h:outputLabel value="Sexo" for="sexo" styleClass="ui-outputlabel"/>
-	 							<h:selectOneMenu id="sexo" value="#{pedidoBean.pedido.sexo}" styleClass="full-width">  
+	 							<h:selectOneMenu id="sexo" value="#{pedidoBean.pedido.sexo}" styleClass=" full-width">  
 						            <f:selectItem itemLabel="Feminino" itemValue="F" />
 						            <f:selectItem itemLabel="Masculino" itemValue="M" />
 						        </h:selectOneMenu>
@@ -91,7 +93,7 @@
  						<td colspan="2">
  						<div class="form-group">
  							<h:outputLabel value="CEP" for="cep" styleClass="ui-outputlabel"/>
- 							<p:inputMask value="#{pedidoBean.pedido.cep}" id="cep" size="15" maxlength="10" mask="99999-999" required="true" requiredMessage="O campo CEP é obrigatório." styleClass="small full-width">
+ 							<p:inputMask value="#{pedidoBean.pedido.cep}" id="cep" size="15" maxlength="10" mask="99999-999" required="true" requiredMessage="O campo CEP é obrigatório." styleClass="small  ">
  								<f:ajax listener="#{pedidoBean.buscarCEP}" render="endereco cidade uf" event="blur"/>
  							</p:inputMask>
  							</div>
@@ -102,13 +104,13 @@
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="Endereço" for="endereco" styleClass="ui-outputlabel"/>
- 							<p:inputText value="#{pedidoBean.pedido.endereco}" id="endereco" size="40" maxlength="100" required="true" requiredMessage="O campo Endereço é obrigatório." styleClass="small full-width"/>
+ 							<p:inputText value="#{pedidoBean.pedido.endereco}" id="endereco" size="40" maxlength="100" required="true" requiredMessage="O campo Endereço é obrigatório." styleClass="small  "/>
  							</div>
  						</td>
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="Número" for="numero" styleClass="ui-outputlabel"/>
- 							<p:inputText value="#{pedidoBean.pedido.numero}" id="numero" size="15" maxlength="8"  styleClass="small full-width">
+ 							<p:inputText value="#{pedidoBean.pedido.numero}" id="numero" size="15" maxlength="8"  styleClass="small  ">
  								<f:convertNumber />
  							</p:inputText>
  							</div>
@@ -121,13 +123,13 @@
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="Cidade" for="cidade" styleClass="ui-outputlabel"/>
- 							<p:inputText value="#{pedidoBean.pedido.cidade}" id="cidade" size="40" maxlength="70" required="true" requiredMessage="O campo Cidade é obrigatório." styleClass="small full-width"/>
+ 							<p:inputText value="#{pedidoBean.pedido.cidade}" id="cidade" size="40" maxlength="70" required="true" requiredMessage="O campo Cidade é obrigatório." styleClass="small  "/>
  							</div>
  						</td>
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="UF" for="uf" styleClass="ui-outputlabel"/>
- 							<p:inputText value="#{pedidoBean.pedido.uf}" id="uf" size="4" maxlength="2" required="true" requiredMessage="O campo UF é obrigatório." styleClass="small full-width"/>
+ 							<p:inputText value="#{pedidoBean.pedido.uf}" id="uf" size="4" maxlength="2" required="true" requiredMessage="O campo UF é obrigatório." styleClass="small  "/>
  							</div>
  						</td>
  					</tr>
@@ -135,19 +137,19 @@
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="Peso" for="peso" styleClass="ui-outputlabel"/>
- 							<p:inputMask value="#{pedidoBean.pedido.peso}" id="peso" size="8" maxlength="4"  mask="999,99" required="true" requiredMessage="O campo Peso é obrigatório."  styleClass="small full-width"/>
+ 							<p:inputMask value="#{pedidoBean.pedido.peso}" id="peso" size="8" maxlength="4"  mask="999,99" required="true" requiredMessage="O campo Peso é obrigatório."  styleClass="small  "/>
  							</div>
  						</td>
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="Altura" for="altura" styleClass="ui-outputlabel"/>
- 							<p:inputMask value="#{pedidoBean.pedido.altura}" id="altura" size="6" maxlength="6" mask="9,99" required="true" requiredMessage="O campo Altura é obrigatório." styleClass="small full-width"/>
+ 							<p:inputMask value="#{pedidoBean.pedido.altura}" id="altura" size="6" maxlength="6" mask="9,99" required="true" requiredMessage="O campo Altura é obrigatório." styleClass="small  "/>
  							</div>
  						</td>
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="Superfície corporal" for="superficie_corporal" styleClass="ui-outputlabel"/>
- 							<p:inputMask value="#{pedidoBean.pedido.superficie_corporal}" id="superficie_corporal" size="40" maxlength="40" required="true" requiredMessage="O campo Superfície corporal é obrigatório." styleClass="small full-width"/>
+ 							<p:inputMask value="#{pedidoBean.pedido.superficie_corporal}" id="superficie_corporal" size="40" maxlength="40" required="true" requiredMessage="O campo Superfície corporal é obrigatório." styleClass="small  "/>
  							</div>
  						</td>
  					</tr>
@@ -155,144 +157,35 @@
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="Diagnóstico" for="diagnostico" styleClass="ui-outputlabel"/>
- 							<p:inputMask value="#{pedidoBean.pedido.diagnostico}" id="diagnostico" size="40" maxlength="40" required="true" requiredMessage="O campo Diagnóstico é obrigatório." styleClass="small full-width"/>
+ 							<p:inputMask value="#{pedidoBean.pedido.diagnostico}" id="diagnostico" size="40" maxlength="40" required="true" requiredMessage="O campo Diagnóstico é obrigatório." styleClass="small  "/>
  							</div>
  						</td>
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="UF Médico" for="uf_medico" styleClass="ui-outputlabel"/>
- 							<p:inputText value="#{pedidoBean.pedido.uf_medico}" id="uf_medico" size="3" maxlength="2" required="true" requiredMessage="O campo UF Médico é obrigatório." styleClass="small full-width"/>
+ 							<p:inputText value="#{pedidoBean.pedido.uf_medico}" id="uf_medico" size="3" maxlength="2" required="true" requiredMessage="O campo UF Médico é obrigatório." styleClass="small  "/>
  							</div>
  						</td>
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="Médico" for="medico" styleClass="ui-outputlabel"/>
- 							<p:inputMask value="#{pedidoBean.pedido.medico}" id="medico" size="40" maxlength="40" required="true" requiredMessage="O campo Médico é obrigatório." styleClass="small full-width"/>
+ 							<p:inputMask value="#{pedidoBean.pedido.medico}" id="medico" size="40" maxlength="40" required="true" requiredMessage="O campo Médico é obrigatório." styleClass="small  "/>
  							</div>
  						</td>
  						<td>
  						<div class="form-group">
  							<h:outputLabel value="CRM" for="crm_medico" styleClass="ui-outputlabel"/>
- 							<p:inputMask value="#{pedidoBean.pedido.crm_medico}" id="crm_medico" size="15" maxlength="15" required="true" requiredMessage="O campo CRM do Médico é obrigatório." styleClass="small full-width"/>
+ 							<p:inputMask value="#{pedidoBean.pedido.crm_medico}" id="crm_medico" size="15" maxlength="15" required="true" requiredMessage="O campo CRM do Médico é obrigatório." styleClass="small  "/>
  							</div>
  						</td>
  						
  					</tr>
- 					<!-- <tr>
- 				
- 						<td colspan="3">
- 								<div class="form-group">
- 								<h:outputLabel value="Medicamento" for="medicamento" />
- 								
-	 							<h:selectOneMenu id="medicamento" value="#{pedidoBean.pedido.medicamentos}" styleClass="full-width">  
-	 							<f:selectItem itemLabel="Selecione o medicamento" itemValue="0" />
-								<f:selectItem itemLabel="7896212424351 : ABIRATERONA - ZYTIGA" itemValue="7896212424351" />
-								<f:selectItem itemLabel="7896094208131 : ANASTROZOL - ANASTROLIBBS" itemValue="7896094208131" />
-								<f:selectItem itemLabel="7891317458850 : ANASTROZOL - ANASTROZOL (GENERICO) EUROFARMA" itemValue="7891317458850" />
-								<f:selectItem itemLabel="7896206400866 : ANASTROZOL - ARIMIDEX" itemValue="7896206400866" />
-								<f:selectItem itemLabel="7898902274796 : BICALUTAMIDA - BICALUTAMIDA (GENERICO) ACCORD" itemValue="7898902274796" />
-								<f:selectItem itemLabel="7891317482541 : BICALUTAMIDA - BICALUTAMIDA (GENERICO) EUROFARMA" itemValue="7891317482541" />
-								<f:selectItem itemLabel="7896206400781 : BICALUTAMIDA - CASODEX" itemValue="7896206400781" />
-								<f:selectItem itemLabel="7897595604446 : BICALUTAMIDA - GEPEPROSTIN" itemValue="7897595604446" />
-								<f:selectItem itemLabel="7896269901461 : BUSSULFANO - MYLERAN" itemValue="7896269901461" />
-								<f:selectItem itemLabel="7898272940215 : CAPECITABINA - CAPECARE" itemValue="7898272940215" />
-								<f:selectItem itemLabel="7898272940185 : CAPECITABINA - CAPECARE" itemValue="7898272940185" />
-								<f:selectItem itemLabel="7898272940192 : CAPECITABINA - CAPECARE" itemValue="7898272940192" />
-								<f:selectItem itemLabel="7898272940208 : CAPECITABINA - CAPECARE" itemValue="7898272940208" />
-								<f:selectItem itemLabel="7898272940253 : CAPECITABINA - CAPECARE" itemValue="7898272940253" />
-								<f:selectItem itemLabel="7898272940222 : CAPECITABINA - CAPECARE" itemValue="7898272940222" />
-								<f:selectItem itemLabel="7898272940239 : CAPECITABINA - CAPECARE" itemValue="7898272940239" />
-								<f:selectItem itemLabel="7898272940246 : CAPECITABINA - CAPECARE" itemValue="7898272940246" />
-								<f:selectItem itemLabel="7898272940123 : CAPECITABINA - CAPECITABINA (GENERICO) SUN FARMACEUTICA" itemValue="7898272940123" />
-								<f:selectItem itemLabel="7898272940093 : CAPECITABINA - CAPECITABINA (GENERICO) SUN FARMACEUTICA" itemValue="7898272940093" />
-								<f:selectItem itemLabel="7898272940109 : CAPECITABINA - CAPECITABINA (GENERICO) SUN FARMACEUTICA" itemValue="7898272940109" />
-								<f:selectItem itemLabel="7898272940116 : CAPECITABINA - CAPECITABINA (GENERICO) SUN FARMACEUTICA" itemValue="7898272940116" />
-								<f:selectItem itemLabel="7898272940161 : CAPECITABINA - CAPECITABINA (GENERICO) SUN FARMACEUTICA" itemValue="7898272940161" />
-								<f:selectItem itemLabel="7898272940130 : CAPECITABINA - CAPECITABINA (GENERICO) SUN FARMACEUTICA" itemValue="7898272940130" />
-								<f:selectItem itemLabel="7898272940147 : CAPECITABINA - CAPECITABINA (GENERICO) SUN FARMACEUTICA" itemValue="7898272940147" />
-								<f:selectItem itemLabel="7898272940154 : CAPECITABINA - CAPECITABINA (GENERICO) SUN FARMACEUTICA" itemValue="7898272940154" />
-								<f:selectItem itemLabel="7896226501147 : CAPECITABINA - XELODA" itemValue="7896226501147" />
-								<f:selectItem itemLabel="7896226501154 : CAPECITABINA - XELODA" itemValue="7896226501154" />
-								<f:selectItem itemLabel="7898473020877 : CICLOFOSFAMIDA - GENUXAL" itemValue="7898473020877" />
-								<f:selectItem itemLabel="7896269901454 : CLORAMBUCIL (A) - LEUKERAN" itemValue="7896269901454" />
-								<f:selectItem itemLabel="7896016807046 : DASATINIBE - SPRYCEL" itemValue="7896016807046" />
-								<f:selectItem itemLabel="7896016806599 : DASATINIBE - SPRYCEL" itemValue="7896016806599" />
-								<f:selectItem itemLabel="7896637022033 : DIETILESTILBESTROL - DESTILBENOL" itemValue="7896637022033" />
-								<f:selectItem itemLabel="899337000714 : ENZALUTAMIDA - XTANDI" itemValue="899337000714" />
-								<f:selectItem itemLabel="7896226505152 : ERLOTINIBE - TARCEVA" itemValue="7896226505152" />
-								<f:selectItem itemLabel="7896226505169 : ERLOTINIBE - TARCEVA" itemValue="7896226505169" />
-								<f:selectItem itemLabel="7896226505145 : ERLOTINIBE - TARCEVA" itemValue="7896226505145" />
-								<f:selectItem itemLabel="7896016800757 : ETOPOSIDO - VEPESID" itemValue="7896016800757" />
-								<f:selectItem itemLabel="7896261016545 : EVEROLIMO - AFINITOR" itemValue="7896261016545" />
-								<f:selectItem itemLabel="7896261016538 : EVEROLIMO - AFINITOR" itemValue="7896261016538" />
-								<f:selectItem itemLabel="7896261018075 : EVEROLIMO - AFINITOR" itemValue="7896261018075" />
-								<f:selectItem itemLabel="7896261008212 : EVEROLIMO - CERTICAN" itemValue="7896261008212" />
-								<f:selectItem itemLabel="7896261008199 : EVEROLIMO - CERTICAN" itemValue="7896261008199" />
-								<f:selectItem itemLabel="7891268100501 : EXEMESTANO - AROMASIN" itemValue="7891268100501" />
-								<f:selectItem itemLabel="7898328480351 : FLUDARABINA - FLUDARA" itemValue="7898328480351" />
-								<f:selectItem itemLabel="7896206402457 : GEFITINIBE - IRESSA" itemValue="7896206402457" />
-								<f:selectItem itemLabel="7896016800696 : HIDROXIUREIA - HYDREA" itemValue="7896016800696" />
-								<f:selectItem itemLabel="7896261009448 : IMATINIB - GLIVEC" itemValue="7896261009448" />
-								<f:selectItem itemLabel="7896261018013 : IMATINIB - GLIVEC" itemValue="7896261018013" />
-								<f:selectItem itemLabel="7891317483753 : IMATINIB - MESILATO DE IMATINIBE (GENERICO) EUROFARMA" itemValue="7891317483753" />
-								<f:selectItem itemLabel="7891317483777 : IMATINIB - MESILATO DE IMATINIBE (GENERICO) EUROFARMA" itemValue="7891317483777" />
-								<f:selectItem itemLabel="7896015526580 : LAPATINIBE - TYKERB" itemValue="7896015526580" />
-								<f:selectItem itemLabel="7896261001183 : LETROZOL - FEMARA" itemValue="7896261001183" />
-								<f:selectItem itemLabel="7891317458867 : LETROZOL - LETROZOL (GENERICO) EUROFARMA" itemValue="7891317458867" />
-								<f:selectItem itemLabel="7898149932183 : MEGESTROL - FEMIGESTROL" itemValue="7898149932183" />
-								<f:selectItem itemLabel="7896016800726 : MEGESTROL - MEGESTAT" itemValue="7896016800726" />
-								<f:selectItem itemLabel="7896269901027 : MELFALANO - ALKERAN" itemValue="7896269901027" />
-								<f:selectItem itemLabel="7895858007348 : MERCAPTOPURINA - PURINETHOL" itemValue="7895858007348" />
-								<f:selectItem itemLabel="7896014669028 : METOTREXATO - METREXATO" itemValue="7896014669028" />
-								<f:selectItem itemLabel="7892953101865 : METOTREXATO - TECNOMET" itemValue="7892953101865" />
-								<f:selectItem itemLabel="7896016800702 : MITOTANO - LISODREN" itemValue="7896016800702" />
-								<f:selectItem itemLabel="7896261019973 : NILOTINIBE - TASIGNA" itemValue="7896261019973" />
-								<f:selectItem itemLabel="7896015521073 : PAZOPANIBE - VOTRIENT" itemValue="7896015521073" />
-								<f:selectItem itemLabel="7896015521097 : PAZOPANIBE - VOTRIENT" itemValue="7896015521097" />
-								<f:selectItem itemLabel="7896015521103 : PAZOPANIBE - VOTRIENT" itemValue="7896015521103" />
-								<f:selectItem itemLabel="7891106006767 : SORAFENIBE - NEXAVAR" itemValue="7891106006767" />
-								<f:selectItem itemLabel="7891268100631 : SUNITINIBE - SUTENT" itemValue="7891268100631" />
-								<f:selectItem itemLabel="7891268100648 : SUNITINIBE - SUTENT" itemValue="7891268100648" />
-								<f:selectItem itemLabel="7891268100655 : SUNITINIBE - SUTENT" itemValue="7891268100655" />
-								<f:selectItem itemLabel="7896014668038 : TAMOXIFENO - CITRATO TAMOXIFENO (GENERICO) BLAUSIEGEL" itemValue="7896014668038" />
-								<f:selectItem itemLabel="7897595601889 : TAMOXIFENO - CITRATO TAMOXIFENO (GENERICO) SANDOZ" itemValue="7897595601889" />
-								<f:selectItem itemLabel="7897595601834 : TAMOXIFENO - CITRATO TAMOXIFENO (GENERICO) SANDOZ" itemValue="7897595601834" />
-								<f:selectItem itemLabel="7897595612595 : TAMOXIFENO - FESTONE" itemValue="7897595612595" />
-								<f:selectItem itemLabel="7897595612601 : TAMOXIFENO - FESTONE" itemValue="7897595612601" />
-								<f:selectItem itemLabel="7896206400361 : TAMOXIFENO - NOLVADEX" itemValue="7896206400361" />
-								<f:selectItem itemLabel="7896206400385 : TAMOXIFENO - NOLVADEX" itemValue="7896206400385" />
-								<f:selectItem itemLabel="7896014668410 : TAMOXIFENO - TAXOFEN" itemValue="7896014668410" />
-								<f:selectItem itemLabel="7896014668441 : TAMOXIFENO - TAXOFEN" itemValue="7896014668441" />
-								<f:selectItem itemLabel="7896014668434 : TAMOXIFENO - TAXOFEN" itemValue="7896014668434" />
-								<f:selectItem itemLabel="7892953100516 : TAMOXIFENO - TECNOTAX" itemValue="7892953100516" />
-								<f:selectItem itemLabel="7892953100530 : TAMOXIFENO - TECNOTAX" itemValue="7892953100530" />
-								<f:selectItem itemLabel="7897572007192 : TEMOZOLOMIDA - TEMODAL" itemValue="7897572007192" />
-								<f:selectItem itemLabel="7897572007215 : TEMOZOLOMIDA - TEMODAL" itemValue="7897572007215" />
-								<f:selectItem itemLabel="7897572007222 : TEMOZOLOMIDA - TEMODAL" itemValue="7897572007222" />
-								<f:selectItem itemLabel="7897572007185 : TEMOZOLOMIDA - TEMODAL" itemValue="7897572007185" />
-								<f:selectItem itemLabel="7897572007208 : TEMOZOLOMIDA - TEMODAL" itemValue="7897572007208" />
-								<f:selectItem itemLabel="7897572007178 : TEMOZOLOMIDA - TEMODAL" itemValue="7897572007178" />
-								<f:selectItem itemLabel="7898272944817 : TEMOZOLOMIDA - TEMOZOD" itemValue="7898272944817" />
-								<f:selectItem itemLabel="7898272944886 : TEMOZOLOMIDA - TEMOZOD" itemValue="7898272944886" />
-								<f:selectItem itemLabel="7898272944800 : TEMOZOLOMIDA - TEMOZOD" itemValue="7898272944800" />
-								<f:selectItem itemLabel="7898272944923 : TEMOZOLOMIDA - TEMOZOD" itemValue="7898272944923" />
-								<f:selectItem itemLabel="7898272944640 : TEMOZOLOMIDA - TEMOZOLOMIDA (GENERICO) SUN FARMACEUTICA" itemValue="7898272944640" />
-								<f:selectItem itemLabel="7898272944688 : TEMOZOLOMIDA - TEMOZOLOMIDA (GENERICO) SUN FARMACEUTICA" itemValue="7898272944688" />
-								<f:selectItem itemLabel="7898272944602 : TEMOZOLOMIDA - TEMOZOLOMIDA (GENERICO) SUN FARMACEUTICA" itemValue="7898272944602" />
-								<f:selectItem itemLabel="7898272944725 : TEMOZOLOMIDA - TEMOZOLOMIDA (GENERICO) SUN FARMACEUTICA" itemValue="7898272944725" />
-								<f:selectItem itemLabel="7896269901225 : TIOGUANINA - LANVIS" itemValue="7896269901225" />
-								<f:selectItem itemLabel="7896226506319 : VEMURAFENIBE - ZELBORAF" itemValue="7896226506319" />
-								<f:selectItem itemLabel="7896290401879 : VINORELBINA - NAVELBINE" itemValue="7896290401879" />
-								<f:selectItem itemLabel="7896290401886 : VINORELBINA - NAVELBINE" itemValue="7896290401886" />
-						        </h:selectOneMenu> 
-						        </div>
- 						</td>
- 					</tr> -->
+ 					
  					<tr>
  						<td colspan="4">
  						<h:outputLabel value="Medicamento" for="medicamento" styleClass="ui-outputlabel"/>
  							
-		 						<table class="bradseg-table full-width" width="100%" >
+		 						<table class="bradseg-table  " width="100%" >
 								    <thead class="hidden-xs">
 								        <tr>
 								            <th class="col-md-1 text-center"></th>
@@ -327,16 +220,16 @@
 	 					<td>
 	 					<div class="form-group">
 	 						<h:outputLabel value="Data da receita" for="receita" styleClass="ui-outputlabel"/>
-<!--  							<p:inputMask value="#{pedidoBean.pedido.receita}" id="receita" size="10" maxlength="10" mask="99/99/9999"  required="true" requiredMessage="O campo receita é obrigatório." styleClass="small full-width"/> -->
- 								<!-- <p:calendar id="receita" value="#{pedidoBean.pedido.dataReceita}"  size="35" maxlength="10" pattern="dd/MM/yyyy" mask="true" styleClass="small full-width" required="true" requiredMessage="O campo receita é obrigatório."  converter="dateConverter" /> -->
- 								<p:calendar id="receita" value="#{pedidoBean.pedido.dataReceita}"  size="35" maxlength="10" pattern="dd/MM/yyyy" mask="true" styleClass="small full-width" required="true" requiredMessage="O campo receita é obrigatório." converter="dateConverter"   />
+<!--  							<p:inputMask value="#{pedidoBean.pedido.receita}" id="receita" size="10" maxlength="10" mask="99/99/9999"  required="true" requiredMessage="O campo receita é obrigatório." styleClass="small  "/> -->
+ 								<!-- <p:calendar id="receita" value="#{pedidoBean.pedido.dataReceita}"  size="35" maxlength="10" pattern="dd/MM/yyyy" mask="true" styleClass="small  " required="true" requiredMessage="O campo receita é obrigatório."  converter="dateConverter" /> -->
+ 								<p:calendar id="receita" value="#{pedidoBean.pedido.dataReceita}"  size="35" maxlength="10" pattern="dd/MM/yyyy" mask="true" styleClass="small  " required="true" requiredMessage="O campo receita é obrigatório." converter="dateConverter"   />
 
  							</div>
 	 					</td>
 	 					<td>
 	 					<div class="form-group">
  							<h:outputLabel value="CID" for="cid" styleClass="ui-outputlabel"/>
- 							<p:inputText value="#{pedidoBean.pedido.cid}" id="cid" size="8" maxlength="8"  required="true" requiredMessage="O campo CID é obrigatório." styleClass="small full-width">
+ 							<p:inputText value="#{pedidoBean.pedido.cid}" id="cid" size="8" maxlength="8"  required="true" requiredMessage="O campo CID é obrigatório." styleClass="small  ">
  								<f:convertNumber />
  							</p:inputText>
  							</div>
@@ -344,7 +237,7 @@
 	 					<td>
 	 					<div class="form-group">
 	 						<h:outputLabel value="Procedimento" for="procedimento" styleClass="ui-outputlabel"/>
- 							<p:inputMask value="#{pedidoBean.pedido.procedimento}" id="procedimento" size="35" maxlength="35" required="true" requiredMessage="O campo Procedimento é obrigatório." styleClass="small full-width"/>
+ 							<p:inputMask value="#{pedidoBean.pedido.procedimento}" id="procedimento" size="35" maxlength="35" required="true" requiredMessage="O campo Procedimento é obrigatório." styleClass="small  "/>
  							</div>
 	 					</td>
 	 				
@@ -354,13 +247,13 @@
 	 					<td>
 	 					<div class="form-group">
 	 						<h:outputLabel value="Regime" for="regime" styleClass="ui-outputlabel"/>
- 							<p:inputMask value="#{pedidoBean.pedido.regime}" id="regime" size="10" maxlength="10" required="true" requiredMessage="O campo Regime é obrigatório." styleClass="small full-width"/>
+ 							<p:inputMask value="#{pedidoBean.pedido.regime}" id="regime" size="10" maxlength="10" required="true" requiredMessage="O campo Regime é obrigatório." styleClass="small  "/>
  							</div>
 	 					</td>
 	 					<td>
 	 						<div class="form-group">
  							<h:outputLabel value="Quantidade" for="quantidade" styleClass="ui-outputlabel"/>
- 							<p:inputText value="#{pedidoBean.pedido.quantidade}" id="quantidade" size="8" maxlength="8" required="true" requiredMessage="O campo Quantidade é obrigatório." styleClass="small full-width">
+ 							<p:inputText value="#{pedidoBean.pedido.quantidade}" id="quantidade" size="8" maxlength="8" required="true" requiredMessage="O campo Quantidade é obrigatório." styleClass="small  ">
  								<f:convertNumber />
  							</p:inputText>
  							</div>
@@ -370,7 +263,7 @@
 	 					<td colspan="2">
 	 						<div class="form-group">
 		 						<h:outputLabel value="Status" for="status" styleClass="ui-outputlabel"/>
-		 						<p:inputText value="#{pedidoBean.pedido.status}" id="status" size="35" maxlength="35"  styleClass="small full-width" />
+		 						<p:inputText value="#{pedidoBean.pedido.status}" id="status" size="35" maxlength="35"  styleClass="small  " />
 		 						
 	 						</div>
  								
