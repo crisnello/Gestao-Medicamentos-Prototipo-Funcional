@@ -1,12 +1,17 @@
 package br.com.bradesco.web.entitie;
 
 import java.io.Serializable;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.apache.log4j.Logger;
+
 
 public class Pedido implements Serializable{
+
+	protected Logger logger = Logger.getLogger(this.getClass());
 	
 	private static final long serialVersionUID = 8023901815942617149L;
 	
@@ -324,10 +329,24 @@ public class Pedido implements Serializable{
 
 	public void setReceita(String receita) {
 		this.receita = receita;
+		
+		try {
+			dataReceita = sdf_br.parse(this.receita);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 	
 	public Date getDataReceita() {
+		
+/*		try {
+			logger.debug("receita :"+getReceita());
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+*/		
 		
 		return dataReceita;
 	}

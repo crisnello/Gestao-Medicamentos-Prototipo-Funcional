@@ -144,6 +144,7 @@ public class PedidoBean implements Serializable{
 				return "/pages/pedido/pedidoEditar";
 			}*/
 			
+			logger.debug(pedido.getReceita());
 			
 			//pedido do mesmo cliente
 			pedido.setIdCliente(u.getIdCliente());
