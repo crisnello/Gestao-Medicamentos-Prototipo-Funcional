@@ -146,7 +146,7 @@ public class PedidoBean implements Serializable{
 			
 //			logger.debug(pedido.getReceita());
 			
-//			pedido.setIdade(Utils.getIdade(pedido.getDataNasc()));
+			pedido.setIdade(Utils.getIdade(pedido.getDataNasc()));
 			
 			//pedido do mesmo cliente
 			pedido.setIdCliente(u.getIdCliente());
