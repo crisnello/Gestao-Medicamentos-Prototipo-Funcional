@@ -1,6 +1,8 @@
 package br.com.bradesco.web.entitie;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -8,6 +10,8 @@ import java.util.Date;
 public class Pedido implements Serializable{
 	
 	private static final long serialVersionUID = 8023901815942617149L;
+	
+	SimpleDateFormat sdf_br = new SimpleDateFormat("dd/MM/yyyy");
 
 	private long id;
 	
@@ -60,6 +64,8 @@ public class Pedido implements Serializable{
 	private String uf_medico;
 	
 	private String receita;
+	
+	private Date dataReceita;
 	
 	private String cid;
 	
@@ -313,12 +319,28 @@ public class Pedido implements Serializable{
 	}
 
 	public String getReceita() {
+		
 		return receita;
 	}
 
 	public void setReceita(String receita) {
 		this.receita = receita;
 	}
+	
+	
+	public Date getDataReceita() {
+		
+		return dataReceita;
+	}
+
+
+	public void setDataReceita(Date dataReceita) {
+		
+		this.receita = sdf_br.format(dataReceita);
+		
+		this.dataReceita = dataReceita;
+	}
+
 
 	public String getCid() {
 		return cid;
