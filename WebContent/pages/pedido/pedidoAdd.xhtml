@@ -40,7 +40,7 @@
 								            label="Escolher" uploadLabel="Enviar" cancelLabel="Cancelar"
 								            />  
 									            
-								    <p:growl id="messages" showDetail="false"/>
+								    
 							
 							   
  						</td>
@@ -48,6 +48,9 @@
  					<tr>
  						<td>
  						 	<h:panelGroup id="companyImage">
+ 						 		
+ 						 		<p:growl id="messages" showDetail="false"/>
+ 						 		
 					   			<c:if test="${imagemBean.qtd_imagens_novas > 0}"> 	 
 								       		<c:set var="isOK" value="true" /> 
 								</c:if> 
