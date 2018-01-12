@@ -79,6 +79,12 @@ public class Pedido implements Serializable{
 	
 	private String dataCadastroBr;
 	
+	public Pedido() {
+		setCid("0");
+		setProcedimento("Cadastro Inicial");
+		setRegime("SADT terapia oral");
+	}
+	
 	
 	public String getDataCadastroBr() {
 		return dataCadastroBr;

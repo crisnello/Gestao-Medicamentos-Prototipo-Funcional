@@ -16,6 +16,14 @@
  				
  				<table width="100%" border="0">
  				<tr>
+ 						<td >
+		 					<div class="form-group">
+		 						<h:outputLabel value="Data da receita" for="receita" styleClass="ui-outputlabel"/>
+	 							<p:inputMask value="#{pedidoBean.pedido.receita}" id="receita" size="10" maxlength="10" mask="99/99/9999"  required="true" requiredMessage="O campo receita é obrigatório." styleClass="small full-width"/>
+	 						</div>
+	 					</td>
+				</tr>
+	 			<tr>
  						<td colspan="3">
  							
 	 							<h:outputLabel value="Prescrição Médica" styleClass="ui-outputlabel"/>
@@ -310,13 +318,7 @@
  						</td>
  					</tr> -->
  					
- 					<tr>
-	 					<td>
-	 					<div class="form-group">
-	 						<h:outputLabel value="Data da receita" for="receita" styleClass="ui-outputlabel"/>
- 							<p:inputMask value="#{pedidoBean.pedido.receita}" id="receita" size="10" maxlength="10" mask="99/99/9999"  required="true" requiredMessage="O campo receita é obrigatório." styleClass="small full-width"/>
- 							</div>
-	 					</td>
+ 					<tr style="display:none;">
 	 					<td>
 	 					<div class="form-group">
  							<h:outputLabel value="CID" for="cid" styleClass="ui-outputlabel"/>
@@ -334,7 +336,7 @@
 	 				
  					</tr>
  					
- 					<tr>
+ 					<tr style="display:none;">
 	 					<td>
 	 					<div class="form-group">
 	 						<h:outputLabel value="Regime" for="regime" styleClass="ui-outputlabel"/>
