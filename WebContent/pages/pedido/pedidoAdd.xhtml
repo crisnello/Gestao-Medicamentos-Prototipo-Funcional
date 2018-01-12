@@ -27,18 +27,42 @@
  						<td colspan="3">
  							
 	 							<h:outputLabel value="Prescrição Médica" styleClass="ui-outputlabel"/>
-	 						    <p:fileUpload fileUploadListener="#{imagemBean.handleFileUpload}"  
-								            mode="advanced"   
+	 						    <p:fileUpload fileUploadListener="#{imagemBean.handleFileUpload}"
+	 						    			id="upload"   
+								            mode="advanced"  
+								            auto="true" 
 								            dragDropSupport="true"
-								            update="messages"  
+								            update="companyImage"  
 								            sizeLimit="30000000"  
-								            allowTypes="/(\.|\/)(gif|jpe?g|png)$/" label="Escolher" uploadLabel="Enviar" cancelLabel="Cancelar"/>  
-								  
+								            allowTypes="/(\.|\/)(gif|jpe?g|png)$/" 
+								            invalidFileMessage="São permitidas somente imagens (gif, jpeg, jpg e png)"
+								            label="Escolher" uploadLabel="Enviar" cancelLabel="Cancelar"
+								            />  
+									            
 								    <p:growl id="messages" showDetail="false"/>
-								    
+							
 							   
  						</td>
  					</tr>
+ 					<tr>
+ 						<td>
+ 						 	<h:panelGroup id="companyImage">
+					   			<c:if test="${imagemBean.qtd_imagens_novas > 0}"> 	 
+								       		<c:set var="isOK" value="true" /> 
+								</c:if> 
+							     
+							     <c:if test="${isOK}"> 
+										OK
+							     </c:if> 
+							     <c:if test="${!isOK}"> 
+		 								Faça o upload
+							     </c:if> 
+							     
+							</h:panelGroup>
+ 						 	
+ 						</td>
+ 					</tr>
+ 					
  					<tr>
  						<td>
  							<div id="input_nome" class="form-group">

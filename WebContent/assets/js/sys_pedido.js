@@ -3,6 +3,7 @@ $(document).ready(function() {
 	selecionarAba('aba_pedidos');
  	td_hover($("#hor-minimalist-a td"));
  	
+ 	
 /* 	$('#form_pedido_add').on('submit',function(){
  	    alert($("#nome").val());
  		changeClass('input_nome',"form-group error");

@@ -34,8 +34,52 @@ public class ImagemBean implements Serializable {
 	
 	private String extensao;
 	
+	private int qtd_imagens_novas;
 	
-    public String getExtensao() {
+	public int getQtd_imagens_novas() {
+	
+    	try {
+    		
+	    	Usuario u = (Usuario) Utils.buscarSessao("usuario");
+			ImagemDao iDao = new ImagemDao();
+			imagens_novas = iDao.buscarImagemsNovas(u.getIdCliente(),u.getId());
+			qtd_imagens_novas = imagens_novas.size();
+			
+	    }catch(Throwable e){
+	    	
+			Utils.addMessageSucesso("Falha ao recuperar imagens novas.");
+			
+		}
+		
+		return qtd_imagens_novas;
+	}
+	
+	public void setQtd_imagens_novas(int qtd_imagens_novas) {
+		this.qtd_imagens_novas = qtd_imagens_novas;
+	}
+
+	private List<Imagem> imagens_novas;
+	
+    public List<Imagem> getImagens_novas() {
+    	
+    	try {
+    		
+	    	Usuario u = (Usuario) Utils.buscarSessao("usuario");
+			ImagemDao iDao = new ImagemDao();
+			imagens_novas = iDao.buscarImagemsNovas(u.getIdCliente(),u.getId());
+			
+	    }catch(Throwable e){
+	    	
+			Utils.addMessageSucesso("Falha ao recuperar imagens novas.");
+			
+		}
+    	
+		return imagens_novas;
+	}
+	public void setImagens_novas(List<Imagem> imagens_novas) {
+		this.imagens_novas = imagens_novas;
+	}
+	public String getExtensao() {
 		return extensao;
 	}
 	public void setExtensao(String extensao) {
@@ -57,6 +101,8 @@ public class ImagemBean implements Serializable {
 	        file = event.getFile();
 	        writeFile();
 	        adicionar();
+	        
+	        
     	}catch(Exception e) {
     		e.printStackTrace();
     	}

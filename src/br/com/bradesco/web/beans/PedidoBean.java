@@ -11,6 +11,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 
 import org.apache.log4j.Logger;
+import org.primefaces.model.UploadedFile;
 
 import br.com.bradesco.web.dao.ImagemDao;
 import br.com.bradesco.web.dao.PedidoDao;
@@ -24,6 +25,7 @@ import br.com.bradesco.web.util.Utils;
 @RequestScoped
 public class PedidoBean implements Serializable{
 	
+	
 	private List<Imagem> imagens;
 
 	protected Logger logger = Logger.getLogger(this.getClass());
@@ -34,6 +36,8 @@ public class PedidoBean implements Serializable{
 	
 	private Pedido pedido;
 	
+
+
 	public List<Imagem> getImagens() {
 		return imagens;
 	}
