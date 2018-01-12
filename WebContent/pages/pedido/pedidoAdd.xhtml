@@ -191,23 +191,39 @@
  						</td>
  						
  					</tr>
- 					<!-- OK -->
-<!--  					<tr>
+ 		
+ 					<tr>
  						<td colspan="3">
  						<div class="form-group">
-							<h:outputLabel value="Medicamentos" for="medicamentos" styleClass="ui-outputlabel"/>
-							<p class="font12px text-justify">utilize Ctrl para selecionar mais de um medicamento	</p>
-								<h:selectManyListbox id="medicamentos" value="#{pedidoBean.pedido.medicamentos}" size="7" styleClass="full-width">
-	 								<f:selectItems value="#{medicamentoBean.medicamentos}" var="med" itemLabel="#{med.ean} - #{med.medicamento} /  #{med.apresentacao}" itemValue="#{med.id}" ></f:selectItems>
-						        </h:selectManyListbox>
+								<h:outputLabel value="Medicamentos" for="medicamentos" styleClass="ui-outputlabel"/>
+								<p class="font12px text-justify">utilize Ctrl para selecionar mais de um medicamento	</p>
+								<table class="bradseg-table full-width" width="100%" border="0" >
+										    <thead class="hidden-xs">
+										        <tr>
+										            <!-- <th class="col-md-1 text-center"></th> -->
+										            <th class="col-md-1 text-center">EAN</th>
+										            <th class="col-md-1  text-right">Medicamento</th>
+										            <th class="col-md-6 text-left">Apresentação</th>
+										        </tr>
+										    </thead>
+										    <tbody >
+										    	<tr>
+											      <td class="col-md-1 col-sm-1 col-xs-12 text-left">
+													<h:selectManyListbox id="medicamentos" value="#{pedidoBean.pedido.medicamentos}" size="10" styleClass="full-width">
+						 								<f:selectItems value="#{medicamentoBean.medicamentos}" var="med" itemLabel="#{med.ean} - #{med.medicamento} /  #{med.apresentacao}" itemValue="#{med.id}" ></f:selectItems>
+											        </h:selectManyListbox>
+											      </td>
+										    </tr>
+								        </tbody>
+							        </table>
 						        </div>
  						</td>
- 					</tr> -->
- 					<!-- OK -->
+ 					</tr>
+ 			
  					
  					
  					
- 					 <tr style="display:none;">
+<!--  					 <tr style="display:none;">
  						<td colspan="3">
 	 						<div class="form-group">
 								<h:outputLabel value="Medicamentos" for="medicamentos" styleClass="ui-outputlabel"/>
@@ -259,15 +275,14 @@
 										                 
 													     <c:set var="isSelected" value="false" /> 
 													     <c:forEach var="field" items="${pedidoBean.pedido.medicamentos}">
-													     		  <!-- #{m.id} - #{field} -->
-<!-- 													     		  <h:outputText value="#{m.id.class}"/> - 
-													     		  <h:outputText value="#{field.class}"/> -->
+													     		  	#{m.id} - #{field}
+
 													     		   <c:if test="${m.id eq field}"> 	 
-															       	<c:set var="isSelected" value="true" /> 
+															       		<c:set var="isSelected" value="true" /> 
 															      </c:if> 
 													     </c:forEach> 
 													     <c:if test="${isSelected}"> 
-													      <input id="form_pedido_add:medicamentos:#{status.index}" name="form_pedido_add:medicamentos" value="#{m.id}" type="checkbox" checked="true" />
+													      	<input id="form_pedido_add:medicamentos:#{status.index}" name="form_pedido_add:medicamentos" value="#{m.id}" type="checkbox" checked="true" />
 														    <label for="form_pedido_add:medicamentos:#{status.index}"><span class="checkBox"><span class="icon-chk" ></span></span></label> 
 													     </c:if> 
 													     <c:if test="${!isSelected}"> 
@@ -277,10 +292,10 @@
 										                
 										                
 				                							
-															<!-- 
+															
 															<input id="form_pedido_add:medicamentos:#{status.index}" name="form_pedido_add:medicamentos" value="#{m.id}" type="checkbox" />
 														    <label for="form_pedido_add:medicamentos:#{status.index}"><span class="checkBox"><span class="icon-chk" ></span></span></label> 
-														    -->
+														   
 														</div>
 													</td>
 										            <td class="col-md-2 col-sm-2 col-xs-12">#{m.ean}</td>
@@ -293,7 +308,7 @@
 								</table>
 							
  						</td>
- 					</tr>
+ 					</tr> -->
  					
  					<tr>
 	 					<td>
