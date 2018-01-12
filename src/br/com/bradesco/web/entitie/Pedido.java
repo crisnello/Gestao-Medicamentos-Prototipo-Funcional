@@ -1,7 +1,6 @@
 package br.com.bradesco.web.entitie;
 
 import java.io.Serializable;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;

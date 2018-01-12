@@ -20,12 +20,12 @@
 		 					<div class="form-group">
 		 						<h:outputLabel value="Data da receita" for="receita" styleClass="ui-outputlabel"/>
 	 							<!-- <p:inputText value="#{pedidoBean.pedido.receita}" id="receita" size="10" maxlength="10" mask="99/99/9999"  required="true" requiredMessage="O campo receita é obrigatório." styleClass="small full-width"/> -->
-	 							<p:calendar id="receita" value="#{pedidoBean.pedido.dataReceita}"  size="10" maxlength="10" pattern="dd/MM/yyyy" mask="true" styleClass="small full-width" required="true" requiredMessage="O campo receita é obrigatório." />
+	 							<p:calendar id="receita" value="#{pedidoBean.pedido.dataReceita}"  size="35" maxlength="10" pattern="dd/MM/yyyy" mask="true" styleClass="small full-width" required="true" requiredMessage="O campo receita é obrigatório." />
 	 						</div>
 	 					</td>
 				</tr>
 	 			<tr>
- 						<td colspan="3">
+ 						<td colspan="2">
  							
 	 							<h:outputLabel value="Prescrição Médica" styleClass="ui-outputlabel"/>
 	 						    <p:fileUpload fileUploadListener="#{imagemBean.handleFileUpload}"
@@ -109,12 +109,15 @@
 	 					<td>
 	 					<div class="form-group">
 	 					<h:outputLabel value="Data de Nascimento" for="dataNasc" styleClass="ui-outputlabel"/>
- 							<p:inputMask value="#{pedidoBean.pedido.dataNasc}" id="dataNasc" size="10" maxlength="10" mask="99/99/9999"  required="true" requiredMessage="O campo Data de Nascimento é obrigatório." styleClass="small full-width">
+	 						<p:calendar id="dataNasc" value="#{pedidoBean.pedido.dataNasc}"  size="35" maxlength="10" pattern="dd/MM/yyyy" mask="true" styleClass="small full-width" required="true" requiredMessage="O campo data é obrigatório." >
+	 							<f:convertDateTime />
+	 						</p:calendar>
+<!--  							<p:inputMask value="#{pedidoBean.pedido.dataNasc}" id="dataNasc" size="10" maxlength="10" mask="99/99/9999"  required="true" requiredMessage="O campo Data de Nascimento é obrigatório." styleClass="small full-width">
  								<f:convertDateTime />
  							</p:inputMask>
-	 					</div>
+ -->	 					</div>
 	 					</td>
-	 					<td>
+	 					<td style="display: none;">
 	 					<div class="form-group">
  							<h:outputLabel value="Idade" for="idade" styleClass="ui-outputlabel"/>
  							<p:inputText value="#{pedidoBean.pedido.idade}" id="idade" size="8" maxlength="5"  required="true" requiredMessage="O campo Idade é obrigatório." styleClass="small full-width">
