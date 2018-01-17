@@ -81,7 +81,7 @@
 										            <td class="col-md-2 col-sm-2 col-xs-12">#{x.medicamento.apresentacao}</td>
 										            <td class="col-md-2 col-sm-2 col-xs-12">
 										            
-										            <p:inputText value="#{x.quantidade}" id="quantidade" size="5" maxlength="5" required="true" requiredMessage="O campo Quantidade é obrigatório." styleClass="small  ">
+										            <p:inputText value="#{x.quantidade}" id="quantidade[#{status.index}]" size="5" maxlength="5" required="true" requiredMessage="O campo Quantidade é obrigatório." styleClass="small  ">
 						 								<f:convertNumber />
 						 							</p:inputText>
 										            
