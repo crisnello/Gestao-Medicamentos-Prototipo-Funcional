@@ -14,6 +14,7 @@ import org.apache.log4j.Logger;
 import org.primefaces.model.UploadedFile;
 
 import br.com.bradesco.web.dao.ImagemDao;
+import br.com.bradesco.web.dao.MedicamentoDao;
 import br.com.bradesco.web.dao.PedidoDao;
 import br.com.bradesco.web.entitie.Imagem;
 import br.com.bradesco.web.entitie.Medicamento;
@@ -80,6 +81,42 @@ public class PedidoBean implements Serializable{
 	public String template(){
 		return "/pages/pedido/template";
 	}
+
+	public String pedidoAddMedicamento(){
+		
+		if(pedido.getMedicamentos().size() == 0) {
+			Utils.addMessageSucesso("Selecione pelo menos um medicamento");
+			return "/pages/pedido/pedidoAdd";
+		}
+		
+		ArrayList<PedidoMedicamento> pmeds = new ArrayList<PedidoMedicamento>();
+        for(int i=0;i<pedido.getMedicamentos().size();i++) {
+//        	logger.debug(Long.parseLong(""+pedido.getMedicamentos().get(i)));
+        	
+        	
+        	Medicamento med = null;
+			try {
+				Long pIdMed = Long.valueOf(""+pedido.getMedicamentos().get(i));
+				med = new MedicamentoDao().buscarMedicamento(pIdMed.intValue());
+			} catch (Exception e) {
+				e.printStackTrace();
+			} catch(Throwable t) {
+				t.printStackTrace();
+			}
+        	
+        	PedidoMedicamento pMed = new PedidoMedicamento();
+        	pMed.setMedicamento(med);
+        	pMed.setQuantidade(1);
+        	
+        	pmeds.add(pMed);
+        }
+        
+        pedido.setPedidomedicamento(pmeds);
+		
+		
+		return "/pages/pedido/pedidoAddMedicamento";
+	}
+
 	
 	public String pedidoAdd(){
 		atualizarpedidos();
@@ -191,7 +228,6 @@ public class PedidoBean implements Serializable{
 	        }
 			
 //			logger.debug("MEDICAMENTOS size = "+pedido.getId_medicamentos().size());
-			
 /*			ArrayList<Medicamento> meds = new ArrayList<Medicamento>();
 	        for(int i=0;i<pedido.getId_medicamentos().size();i++) {
 	        	Long pIdMed = Long.valueOf(""+pedido.getId_medicamentos().get(i));

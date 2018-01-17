@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    
+ 	<ui:composition template="/pages/pedido/template.xhtml" >
+ 		<ui:define name="conteudo" >
+ 		
+ 			<h:form id="form_pedido_add">
+ 				<p:messages id="mensagens" />
+ 				
+ 				<!-- <h:inputHidden value="#{pedidoBean.pedido.id}" /> -->
+ 				
+ 				<table width="100%" border="0">
+ 				
+ 					
+<!--  					<tr>
+ 						<td colspan="4">
+ 						<h:outputLabel value="Medicamento" for="medicamento" styleClass="ui-outputlabel"/>
+ 							
+		 						<table class="bradseg-table  " width="100%" >
+								    <thead class="hidden-xs">
+								        <tr>
+								            <th class="col-md-1 text-center"></th>
+								            <th class="col-md-2">EAN</th>
+								            <th class="col-md-7">Medicamento</th>
+								            <th class="col-md-2">Apresentação</th>
+								        </tr>
+								    </thead>
+								    <tbody height="150px">
+								    	
+									    <ui:repeat var="m" value="#{pedidoBean.pedido.medicamentos}" varStatus="status">
+												<tr>
+										            <td class="col-md-1 col-sm-1 col-xs-12 text-center">
+										                <div class="bradseg-chk">
+														</div>
+													</td>
+										            <td class="col-md-2 col-sm-2 col-xs-12">#{m.ean}</td>
+										            <td class="col-md-7 col-sm-7 col-xs-12">#{m.medicamento}</td>
+										            <td class="col-md-2 col-sm-2 col-xs-12">#{m.apresentacao}</td>
+									        </tr>
+										</ui:repeat>
+								       
+								    </tbody>
+								</table>
+							
+ 						</td>
+ 					</tr> -->
+ 					
+ 					 <tr>
+ 						<td colspan="4">
+ 						<div class="form-group">
+ 								<h:outputLabel value="Informe a quantidade de cada Medicamento" styleClass="ui-outputlabel"/>
+ 							
+		 						<table class="bradseg-table  " width="100%" >
+								    <thead class="hidden-xs">
+								        <tr>
+								            <th class="col-md-1 text-center"></th>
+								            <th class="col-md-2">EAN</th>
+								            <th class="col-md-7">Medicamento</th>
+								            <th class="col-md-2">Apresentação</th>
+								             <th class="col-md-2">Quantidade</th>
+								        </tr>
+								    </thead>
+								    <tbody height="150px">
+								    	
+									    <ui:repeat var="x" value="#{pedidoBean.pedido.pedidomedicamento}" varStatus="status">
+												<tr>
+										            <td class="col-md-1 col-sm-1 col-xs-12 text-center">
+										                <div class="bradseg-chk">
+										                	<!-- #{x.id} -->
+														</div>
+													</td>
+										            <td class="col-md-2 col-sm-2 col-xs-12">#{x.medicamento.ean}</td>
+										            <td class="col-md-7 col-sm-7 col-xs-12">#{x.medicamento.medicamento}</td>
+										            <td class="col-md-2 col-sm-2 col-xs-12">#{x.medicamento.apresentacao}</td>
+										            <td class="col-md-2 col-sm-2 col-xs-12">
+										            
+										            <p:inputText value="#{x.quantidade}" id="quantidade" size="5" maxlength="5" required="true" requiredMessage="O campo Quantidade é obrigatório." styleClass="small  ">
+						 								<f:convertNumber />
+						 							</p:inputText>
+										            
+										            </td>
+									        </tr>
+										</ui:repeat>
+								       
+								    </tbody>
+								</table>
+						</div>
+							
+ 						</td>
+ 					</tr>
+  					
+ 					<tr>
+	 					<td colspan="2">
+	 					<div class="form-group">
+	 						<h:commandButton value="Adicionar" action="#{pedidoBean.adicionar}" ajax="false" process="form_pedido_add" update="@all" icon="ui-icon-plus" styleClass="bradseg-btn small blue"/>
+	 						</div>
+	 					</td>
+	 				</tr>
+ 				</table>
+ 
+
+    			
+ 			</h:form>
+ 		</ui:define>
+  	</ui:composition>
+</html>
