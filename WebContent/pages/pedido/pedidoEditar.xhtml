@@ -181,7 +181,7 @@
  						
  					</tr>
  					
- 					<tr>
+<!--  					<tr>
  						<td colspan="4">
  						<h:outputLabel value="Medicamento" for="medicamento" styleClass="ui-outputlabel"/>
  							
@@ -200,13 +200,47 @@
 												<tr>
 										            <td class="col-md-1 col-sm-1 col-xs-12 text-center">
 										                <div class="bradseg-chk">
-<!-- 														    <input id="form_pedido_add:medicamentos:#{status.index}" value="#{pedidoBean.med}" type="checkbox"   />
-														    <label for="form_pedido_add:medicamentos:#{status.index}"><span class="checkBox"><span class="icon-chk" ></span></span></label>  -->
 														</div>
 													</td>
 										            <td class="col-md-2 col-sm-2 col-xs-12">#{m.ean}</td>
 										            <td class="col-md-7 col-sm-7 col-xs-12">#{m.medicamento}</td>
 										            <td class="col-md-2 col-sm-2 col-xs-12">#{m.apresentacao}</td>
+									        </tr>
+										</ui:repeat>
+								       
+								    </tbody>
+								</table>
+							
+ 						</td>
+ 					</tr> -->
+ 					
+ 					 					<tr>
+ 						<td colspan="4">
+ 						<h:outputLabel value="Medicamento" for="medicamento" styleClass="ui-outputlabel"/>
+ 							
+		 						<table class="bradseg-table  " width="100%" >
+								    <thead class="hidden-xs">
+								        <tr>
+								            <th class="col-md-1 text-center"></th>
+								            <th class="col-md-2">EAN</th>
+								            <th class="col-md-7">Medicamento</th>
+								            <th class="col-md-2">Apresentação</th>
+								             <th class="col-md-2">Quantidade</th>
+								        </tr>
+								    </thead>
+								    <tbody height="150px">
+								    	
+									    <ui:repeat var="x" value="#{pedidoBean.pedido.pedidomedicamento}" varStatus="status">
+												<tr>
+										            <td class="col-md-1 col-sm-1 col-xs-12 text-center">
+										                <div class="bradseg-chk">
+										                	<!-- #{x.id} -->
+														</div>
+													</td>
+										            <td class="col-md-2 col-sm-2 col-xs-12">#{x.medicamento.ean}</td>
+										            <td class="col-md-7 col-sm-7 col-xs-12">#{x.medicamento.medicamento}</td>
+										            <td class="col-md-2 col-sm-2 col-xs-12">#{x.medicamento.apresentacao}</td>
+										            <td class="col-md-2 col-sm-2 col-xs-12">#{x.quantidade}</td>
 									        </tr>
 										</ui:repeat>
 								       
@@ -243,7 +277,7 @@
 	 				
  					</tr>
  					
- 					<tr>
+ 					<tr style="display: none;">
 	 					<td>
 	 					<div class="form-group">
 	 						<h:outputLabel value="Regime" for="regime" styleClass="ui-outputlabel"/>

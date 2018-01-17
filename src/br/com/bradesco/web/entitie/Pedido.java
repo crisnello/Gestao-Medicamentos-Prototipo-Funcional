@@ -59,6 +59,8 @@ public class Pedido implements Serializable{
 	
 	private ArrayList<Medicamento> medicamentos;
 	
+	private ArrayList<PedidoMedicamento> pedidomedicamento;
+	
 	private ArrayList<Long> id_medicamentos; 
 	
 	private String medico;
@@ -88,6 +90,10 @@ public class Pedido implements Serializable{
 	private Date dataCadastro;
 	
 	private String dataCadastroBr;
+	
+	public Pedido(long idPedido) {
+		this.id = idPedido;
+	}
 	
 	public Pedido() {
 		setCid("0");
@@ -286,7 +292,7 @@ public class Pedido implements Serializable{
 		this.id_medicamentos = id_medicamentos;
 	}
 
-	
+
 	public ArrayList<Medicamento> getMedicamentos() {
 		return medicamentos;
 	}
@@ -295,6 +301,19 @@ public class Pedido implements Serializable{
 	public void setMedicamentos(ArrayList<Medicamento> medicamentos) {
 		this.medicamentos = medicamentos;
 	}
+	
+	//---------------------------------------------------
+	public ArrayList<PedidoMedicamento> getPedidomedicamento() {
+		return pedidomedicamento;
+	}
+
+	public void setPedidomedicamento(ArrayList<PedidoMedicamento> pedidomedicamento) {
+		this.pedidomedicamento = pedidomedicamento;
+	}
+
+	//--------------------------------------------------
+	
+	
 
 	public String getMedico() {
 		return medico;

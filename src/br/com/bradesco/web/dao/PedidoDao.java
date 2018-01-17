@@ -14,6 +14,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 import br.com.bradesco.web.entitie.Medicamento;
 import br.com.bradesco.web.entitie.Pedido;
+import br.com.bradesco.web.entitie.PedidoMedicamento;
 import br.com.bradesco.web.exceptions.DaoException;
 
 public class PedidoDao extends BaseDao{
@@ -413,6 +414,8 @@ public class PedidoDao extends BaseDao{
 				u.setIdCliente(rs.getInt("id_cliente"));
 
 				
+				ArrayList<PedidoMedicamento> pmeds = new ArrayList<PedidoMedicamento>();
+				
 				ArrayList<Medicamento> meds = new ArrayList<Medicamento>();
 				String query2 = "select * from pedido_medicamento where id_pedido="+u.getId();
 				
@@ -423,8 +426,20 @@ public class PedidoDao extends BaseDao{
 					Medicamento medicamento	= (new MedicamentoDao()).buscarMedicamento(rs2.getInt("id_medicamento"));
 //					logger.debug("MEDICAMENTO "+medicamento.getId()+" nome :"+medicamento.getMedicamento());
 					meds.add(medicamento);
+					
+					PedidoMedicamento pm = new PedidoMedicamento();
+					pm.setId(rs2.getInt("id"));
+					pm.setMedicamento(medicamento);
+					pm.setPedido(u);
+					pm.setQuantidade(rs2.getInt("quantidade"));
+					
+//					logger.debug(pm);
+					
+					pmeds.add(pm);
+					
 				}
 				u.setMedicamentos(meds);
+				u.setPedidomedicamento(pmeds);
 								
 			}
 			

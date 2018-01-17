@@ -18,6 +18,7 @@ import br.com.bradesco.web.dao.PedidoDao;
 import br.com.bradesco.web.entitie.Imagem;
 import br.com.bradesco.web.entitie.Medicamento;
 import br.com.bradesco.web.entitie.Pedido;
+import br.com.bradesco.web.entitie.PedidoMedicamento;
 import br.com.bradesco.web.entitie.Usuario;
 import br.com.bradesco.web.util.Utils;
 
@@ -118,6 +119,14 @@ public class PedidoBean implements Serializable{
 			
 			ImagemDao iDao = new ImagemDao();
 			setImagens(iDao.buscarImagemsByPedido(pPedido.getId()));
+			
+			
+/*			ArrayList<PedidoMedicamento> pms = pPedido.getPedidomedicamento();
+			
+			for(int j=0;j < pms.size();j++) {
+				
+			}*/
+			
 		
 
 		}catch(Throwable e){
