@@ -26,7 +26,7 @@ public class GrupoDao extends BaseDao{
 			pstm.executeUpdate();
 			
 		}catch (Throwable e) {
-			logger.error("erro cadastrar grupo", e);
+			getLogger().error("erro cadastrar grupo", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -49,7 +49,7 @@ public class GrupoDao extends BaseDao{
 			pstm.executeUpdate();
 			
 		}catch (Throwable e) {
-			logger.error("erro atualizar grupo", e);
+			getLogger().error("erro atualizar grupo", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -70,7 +70,7 @@ public class GrupoDao extends BaseDao{
 			pstm.executeUpdate();
 			
 		}catch (Throwable e) {
-			logger.error("erro excluir grupo", e);
+			getLogger().error("erro excluir grupo", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -95,7 +95,7 @@ public class GrupoDao extends BaseDao{
 			}
 			
 		}catch (Throwable e) {
-			logger.error("erro buscando grupos", e);
+			getLogger().error("erro buscando grupos", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -123,7 +123,7 @@ public class GrupoDao extends BaseDao{
 			}
 			
 		}catch (Throwable e) {
-			logger.error("erro buscando grupos", e);
+			getLogger().error("erro buscando grupos", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();

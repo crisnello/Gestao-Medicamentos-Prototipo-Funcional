@@ -27,7 +27,7 @@ public class AuthorizationListener implements Serializable{
 	/**
 	 * Toda requisicao passa por aqui, validar se o usuario esta logado
 	 */
-	protected Logger logger = Logger.getLogger(AuthorizationListener.class);
+	private final transient Logger logger = Logger.getLogger(AuthorizationListener.class);
 	
 	public void afterPhase(PhaseEvent event) {
 		try {

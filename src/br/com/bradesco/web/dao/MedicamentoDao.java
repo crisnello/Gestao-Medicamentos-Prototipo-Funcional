@@ -31,7 +31,7 @@ public class MedicamentoDao extends BaseDao{
 			
 		}catch (Throwable e) {
 			con.rollback();
-			logger.error("Erro processado excluir", e);
+			getLogger().error("Erro processado excluir", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -58,7 +58,7 @@ public class MedicamentoDao extends BaseDao{
 			}
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado existeMedicamento", e);
+			getLogger().error("Erro processado existeMedicamento", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -89,7 +89,7 @@ public class MedicamentoDao extends BaseDao{
 			
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado buscar medicamento", e);
+			getLogger().error("Erro processado buscar medicamento", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -120,7 +120,7 @@ public class MedicamentoDao extends BaseDao{
 			
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado buscar medicamento", e);
+			getLogger().error("Erro processado buscar medicamento", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}
 //		finally{
@@ -160,7 +160,7 @@ public class MedicamentoDao extends BaseDao{
 			}
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado buscar pedido", e);
+			getLogger().error("Erro processado buscar pedido", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();

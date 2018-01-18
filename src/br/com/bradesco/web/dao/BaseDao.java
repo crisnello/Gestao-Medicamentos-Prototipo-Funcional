@@ -25,12 +25,18 @@ public class BaseDao {
 	
 	protected ResultSet rs2;
 	
-	protected Logger logger = Logger.getLogger(this.getClass());
+	private final transient Logger logger = Logger.getLogger(this.getClass());
 	
 	private long inicio = 0;
 	
 	private static final String contexto = "bradescosolicitaremedio";
 	
+	
+	
+	public Logger getLogger() {
+		return logger;
+	}
+
 	/**
 	 * criar um data source do MySql no glassfish com as configuracoes abaixo
 	 * 

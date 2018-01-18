@@ -23,7 +23,7 @@ import br.com.bradesco.web.util.Utils;
 @RequestScoped
 public class UsuarioBean implements Serializable{
 
-	protected Logger logger = Logger.getLogger(this.getClass());
+	private final transient Logger logger = Logger.getLogger(this.getClass());
 	
 	private static final long serialVersionUID = 2502337141354668367L;
 

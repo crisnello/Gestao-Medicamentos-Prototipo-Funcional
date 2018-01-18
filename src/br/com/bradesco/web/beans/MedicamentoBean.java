@@ -18,7 +18,7 @@ public class MedicamentoBean implements Serializable {
 
 	private static final long serialVersionUID = 5439352856687176305L;
 	
-	protected Logger logger = Logger.getLogger(this.getClass());
+	private final transient Logger logger = Logger.getLogger(this.getClass());
 	
 	private List<Medicamento> medicamentos;
 	

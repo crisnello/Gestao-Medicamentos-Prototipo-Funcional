@@ -31,7 +31,7 @@ public class LoginBean implements Serializable{
 
 	private static final long serialVersionUID = -8997426223735944924L;
 	
-	protected Logger logger = Logger.getLogger(this.getClass());
+	private final transient Logger logger = Logger.getLogger(this.getClass());
 
 	private Usuario usuario;
 	

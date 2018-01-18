@@ -38,7 +38,7 @@ public class PedidoDao extends BaseDao{
 			}
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado atualizarEnderecoCep", e);
+			getLogger().error("Erro processado atualizarEnderecoCep", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -54,7 +54,7 @@ public class PedidoDao extends BaseDao{
 			String q1 = "insert into pedido_imagem(id_pedido,id_imagem)" +
 					" values(?,?)" ;
 			
-			//logger.debug(ReflectionToStringBuilder.toString(u, ToStringStyle.MULTI_LINE_STYLE));
+			//getLogger().debug(ReflectionToStringBuilder.toString(u, ToStringStyle.MULTI_LINE_STYLE));
 			
 			pstm = con.prepareStatement(q1);
 			
@@ -69,7 +69,7 @@ public class PedidoDao extends BaseDao{
 	        
 		}catch (Throwable e) {
 			con.rollback();
-			logger.error("Erro processado adicionar PedidoImagem", e);
+			getLogger().error("Erro processado adicionar PedidoImagem", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -110,7 +110,7 @@ public class PedidoDao extends BaseDao{
 			
 		}catch (Throwable e) {
 			con.rollback();
-			logger.error("Erro processado excluir", e);
+			getLogger().error("Erro processado excluir", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -171,7 +171,7 @@ public class PedidoDao extends BaseDao{
 			}
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado buscar pedido", e);
+			getLogger().error("Erro processado buscar pedido", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -237,7 +237,7 @@ public class PedidoDao extends BaseDao{
 					
 		}catch (Throwable e) {
 			con.rollback();
-			logger.error("Erro processado atualizar pedido", e);
+			getLogger().error("Erro processado atualizar pedido", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -254,7 +254,7 @@ public class PedidoDao extends BaseDao{
 			String q1 = "insert into pedido(nome,numero_cartao,cpf,telefone,email,data_nasc,idade,sexo,cep,endereco,numero,cidade,uf,peso,altura,superficie_corporal,diagnostico,medico,crm_medico,uf_medico,receita,cid,procedimento,regime,quantidade,motivo_cancelamento,status,id_cliente,numero_pedido,data_cadastro)" +
 					" values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)" ;
 			
-			logger.debug(ReflectionToStringBuilder.toString(u, ToStringStyle.MULTI_LINE_STYLE));
+			getLogger().debug(ReflectionToStringBuilder.toString(u, ToStringStyle.MULTI_LINE_STYLE));
 			
 			pstm = con.prepareStatement(q1, Statement.RETURN_GENERATED_KEYS);
 			
@@ -308,7 +308,7 @@ public class PedidoDao extends BaseDao{
 	        	
 	        	Medicamento p = meds.get(i);
 	        	
-//	        	logger.debug("vai inserir medicamento "+p.getId());
+//	        	getLogger().debug("vai inserir medicamento "+p.getId());
 	        	
 	        	String q2 = "insert into pedido_medicamento(id_medicamento,id_pedido) values (?,?)";
 	        	
@@ -327,7 +327,7 @@ public class PedidoDao extends BaseDao{
 	        
 		}catch (Throwable e) {
 			con.rollback();
-			logger.error("Erro processado adicionar pedido", e);
+			getLogger().error("Erro processado adicionar pedido", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -355,7 +355,7 @@ public class PedidoDao extends BaseDao{
 			}
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado existeEmail", e);
+			getLogger().error("Erro processado existeEmail", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -419,12 +419,12 @@ public class PedidoDao extends BaseDao{
 				ArrayList<Medicamento> meds = new ArrayList<Medicamento>();
 				String query2 = "select * from pedido_medicamento where id_pedido="+u.getId();
 				
-//				logger.debug("PEDIDO : "+u.getId()+" NP : "+u.getNumero_pedido());
+//				getLogger().debug("PEDIDO : "+u.getId()+" NP : "+u.getNumero_pedido());
 				
 				rs2 = con.createStatement().executeQuery(query2);
 				while(rs2.next()){
 					Medicamento medicamento	= (new MedicamentoDao()).buscarMedicamento(rs2.getInt("id_medicamento"));
-//					logger.debug("MEDICAMENTO "+medicamento.getId()+" nome :"+medicamento.getMedicamento());
+//					getLogger().debug("MEDICAMENTO "+medicamento.getId()+" nome :"+medicamento.getMedicamento());
 					meds.add(medicamento);
 					
 					PedidoMedicamento pm = new PedidoMedicamento();
@@ -433,7 +433,7 @@ public class PedidoDao extends BaseDao{
 					pm.setPedido(u);
 					pm.setQuantidade(rs2.getInt("quantidade"));
 					
-//					logger.debug(pm);
+//					getLogger().debug(pm);
 					
 					pmeds.add(pm);
 					
@@ -444,7 +444,7 @@ public class PedidoDao extends BaseDao{
 			}
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado buscar pedido", e);
+			getLogger().error("Erro processado buscar pedido", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -512,7 +512,7 @@ public class PedidoDao extends BaseDao{
 			}
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado buscar pedido", e);
+			getLogger().error("Erro processado buscar pedido", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -579,7 +579,7 @@ public class PedidoDao extends BaseDao{
 			}
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado buscar pedido", e);
+			getLogger().error("Erro processado buscar pedido", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();

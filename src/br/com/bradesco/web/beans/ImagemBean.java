@@ -28,7 +28,7 @@ import br.com.bradesco.web.util.Utils;
 public class ImagemBean implements Serializable {
 	
 	private static final long serialVersionUID = 6117293584439445078L;
-	protected Logger logger = Logger.getLogger(ImagemBean.class);
+	private final transient Logger logger = Logger.getLogger(ImagemBean.class);
     
 	private UploadedFile file;  
 	

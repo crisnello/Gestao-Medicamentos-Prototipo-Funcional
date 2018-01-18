@@ -15,7 +15,7 @@ import org.apache.log4j.Logger;
 @FacesValidator(value="emailValidator")
 public class EmailValidator implements Validator{
 	
-	protected Logger logger = Logger.getLogger(EmailValidator.class);
+	private final transient Logger logger = Logger.getLogger(EmailValidator.class);
 
 	 public void validate(FacesContext facesContext, 
 	            UIComponent uIComponent, Object object) throws ValidatorException {

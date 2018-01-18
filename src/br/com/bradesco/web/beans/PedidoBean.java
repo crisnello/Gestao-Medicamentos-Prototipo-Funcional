@@ -4,14 +4,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
+import javax.faces.event.ValueChangeEvent;
 
 import org.apache.log4j.Logger;
-import org.primefaces.model.UploadedFile;
 
 import br.com.bradesco.web.dao.ImagemDao;
 import br.com.bradesco.web.dao.MedicamentoDao;
@@ -26,7 +27,6 @@ import br.com.bradesco.web.util.Utils;
 @ManagedBean(name="pedidoBean")
 @RequestScoped
 public class PedidoBean implements Serializable{
-	
 	
 	private List<Imagem> imagens;
 
@@ -48,18 +48,21 @@ public class PedidoBean implements Serializable{
 		this.imagens = imagens;
 	}
 
-	private List<String> med;
+	private List<String> quantidades;
+
 	
-	public List<String> getMed() {
-		return med;
+	
+
+	public List<String> getQuantidades() {
+		return quantidades;
 	}
 
-	public void setMed(List<String> med) {
-		this.med = med;
+	public void setQuantidades(List<String> quantidades) {
+		this.quantidades = quantidades;
 	}
 
 	public PedidoBean() {
-		med = new ArrayList<String>();
+		quantidades = new ArrayList<String>();
 		atualizarpedidos();
 		setPedido(new Pedido());
 	}
@@ -112,6 +115,8 @@ public class PedidoBean implements Serializable{
         }
         
         pedido.setPedidomedicamento(pmeds);
+        
+//        logger.debug("vai redirecionar para pedidoAddMedicamento");
 		
 		
 		return "/pages/pedido/pedidoAddMedicamento";
@@ -129,7 +134,7 @@ public class PedidoBean implements Serializable{
 			
 			String id = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("id");
 			
-			logger.debug(id);
+//			logger.debug(id);
 			
 			dao.excluir(Long.parseLong(id));
 			
@@ -167,7 +172,7 @@ public class PedidoBean implements Serializable{
 		
 
 		}catch(Throwable e){
-			logger.error("", e);
+//			logger.error("", e);
 			Utils.addMessageErro("Falha ao obter pedido.");
 			return "/pages/pedido/template";
 		}
@@ -214,11 +219,39 @@ public class PedidoBean implements Serializable{
 			Usuario u = (Usuario) Utils.buscarSessao("usuario");
 			PedidoDao dao = new PedidoDao();
 
+			logger.debug("adicionar");
 			
 			if(pedido.getMedicamentos().size() == 0) {
 				Utils.addMessageSucesso("Selecione pelo menos um medicamento");
 				return "/pages/pedido/pedidoAdd";
 			}
+			
+	        for(int i=0;i<pedido.getMedicamentos().size();i++) {
+	        	Medicamento med = null;
+				try {
+					
+					Long pIdMed = Long.valueOf(""+pedido.getMedicamentos().get(i));
+					med = new MedicamentoDao().buscarMedicamento(pIdMed.intValue());
+					
+					FacesContext context = FacesContext.getCurrentInstance();
+				    Long id = context.getApplication().evaluateExpressionGet(context, "#{item.id}", Long.class);
+				   
+					
+				}catch(Throwable t) {
+					t.printStackTrace();
+				}
+	        	
+	        }
+	        
+
+/*			logger.debug(pedido.getPedidomedicamento().size());
+			
+	        for(int i=0;i<pedido.getPedidomedicamento().size();i++) {
+	        	logger.debug(Long.parseLong(""+pedido.getPedidomedicamento().get(i)));
+	        }*/
+	        
+	        
+//	        logger.debug("OK");
 			
 	        //POG
 			ArrayList<Medicamento> meds = new ArrayList<Medicamento>();
@@ -235,8 +268,10 @@ public class PedidoBean implements Serializable{
 	        }*/
 	        
 	        
+	        
 	        pedido.setIdade(Utils.getIdade(pedido.getDataNasc()));
 			
+	        
 			pedido.setNumero_pedido(String.valueOf((new Date()).getTime()));
 			
 			//pedido do mesmo cliente
@@ -245,11 +280,15 @@ public class PedidoBean implements Serializable{
 			ImagemDao iDao = new ImagemDao();
 			List<Imagem> lImagem = iDao.buscarImagemsNovas(u.getIdCliente(),u.getId());
 			
+			
 			if(lImagem.size() <= 0){
 				Utils.addMessageSucesso("Faça primeiramente o upload da imagem da prescrição médica");
 				return "/pages/pedido/pedidoAdd";
 			}else{
+				
+				
 				dao.adicionar(pedido,meds);
+				
 				
 				//Inserindo e Processando todas imagens 
 				for(int z=0;z < lImagem.size();z++){
@@ -282,6 +321,53 @@ public class PedidoBean implements Serializable{
 			}
 		}
 	}
+	
+	public void onChangeQuantidadeNumber(ArrayList<PedidoMedicamento> pms) {
+		for (PedidoMedicamento pm : pms) {
+			logger.debug(pm.getMedicamento().getEan() + " - "+pm.getQuantidade());			
+		}
+
+	}
+	
+	public void save(String rowid) {
+        String jsParam = getJsParam("repeat:" + rowid + ":x");
+        System.out.println("jsParam: " + jsParam); //persist...
+        logger.debug(jsParam);
+    }
+	
+	public static String getJsParam(String paramName) {
+	    javax.faces.context.FacesContext jsf = javax.faces.context.FacesContext.getCurrentInstance();
+	    Map<String, String> requestParameterMap = jsf.getExternalContext().getRequestParameterMap();
+	    String paramValue = requestParameterMap.get(paramName);
+	    if (paramValue != null) {
+	        paramValue = paramValue.trim();
+	        if (paramValue.length() == 0) {
+	            paramValue = null;
+	        }
+	    }
+	    return paramValue;
+	}
+	
+	public void colocarQuantidade(ValueChangeEvent event){
+		
+		logger.debug("colocarQuantidade");
+		String input = event.getNewValue().toString();
+		logger.debug(input);
+		
+/*		for (PedidoMedicamento pm : pedido.getPedidomedicamento()) {
+			logger.debug(pm.getMedicamento().getEan() + " - "+pm.getQuantidade());			
+		}*/
+
+		
+/*		logger.debug(pedido.getPedidomedicamento().size());
+		
+        for(int i=0;i<pedido.getPedidomedicamento().size();i++) {
+        	PedidoMedicamento pm = pedido.getPedidomedicamento().get(i);
+        	logger.debug(pm.getMedicamento().getEan() + " - " + pm.getQuantidade());
+        	System.out.println(pm.getMedicamento().getEan() + " - " + pm.getQuantidade());
+        }*/
+	}
+	
 	
 	public List<Pedido> getPedidos() {
 		return pedidos;

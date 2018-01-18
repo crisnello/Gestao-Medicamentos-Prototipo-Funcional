@@ -24,7 +24,7 @@ import br.com.bradesco.web.util.Utils;
 public class ClienteBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	protected Logger logger = Logger.getLogger(this.getClass());
+	private final transient Logger logger = Logger.getLogger(this.getClass());
 
 	private List<Cliente> clientes;
 	

@@ -11,7 +11,7 @@ import org.apache.log4j.Logger;
 
 public class Pedido implements Serializable{
 
-	protected Logger logger = Logger.getLogger(this.getClass());
+	private final transient Logger logger = Logger.getLogger(this.getClass());
 	
 	private static final long serialVersionUID = 8023901815942617149L;
 	
@@ -348,6 +348,8 @@ public class Pedido implements Serializable{
 
 	public void setReceita(String receita) {
 		this.receita = receita;
+		
+//		logger.debug(this.receita);
 		
 		try {
 			dataReceita = sdf_br.parse(this.receita);

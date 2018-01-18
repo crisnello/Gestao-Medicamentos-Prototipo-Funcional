@@ -18,7 +18,7 @@ public class PerfilBean implements Serializable{
 
 	private static final long serialVersionUID = -3853402425269983518L;
 	
-	protected Logger logger = Logger.getLogger(this.getClass());
+	private final transient Logger logger = Logger.getLogger(this.getClass());
 	
 	private String senha;
 	

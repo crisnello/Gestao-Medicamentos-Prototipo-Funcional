@@ -37,7 +37,7 @@ public class UsuarioDao extends BaseDao{
 			}
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado atualizarEnderecoCep", e);
+			getLogger().error("Erro processado atualizarEnderecoCep", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -58,7 +58,7 @@ public class UsuarioDao extends BaseDao{
 			
 		}catch (Throwable e) {
 			con.rollback();
-			logger.error("Erro processado excluir", e);
+			getLogger().error("Erro processado excluir", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -97,7 +97,7 @@ public class UsuarioDao extends BaseDao{
 			}
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado buscar usuario", e);
+			getLogger().error("Erro processado buscar usuario", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -138,7 +138,7 @@ public class UsuarioDao extends BaseDao{
 			}
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado buscar usuario", e);
+			getLogger().error("Erro processado buscar usuario", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -164,7 +164,7 @@ public class UsuarioDao extends BaseDao{
 			}
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado validarRecuperarSenhaMD5", e);
+			getLogger().error("Erro processado validarRecuperarSenhaMD5", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -183,7 +183,7 @@ public class UsuarioDao extends BaseDao{
 			con.createStatement().executeUpdate(query);
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado removerRecuperarSenha", e);
+			getLogger().error("Erro processado removerRecuperarSenha", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -198,7 +198,7 @@ public class UsuarioDao extends BaseDao{
 			
 			String q1 = "insert into recuperar_senha_security(id_usuario,data_envio) values(?,?)";
 			
-			logger.debug(ReflectionToStringBuilder.toString(u, ToStringStyle.MULTI_LINE_STYLE));
+			getLogger().debug(ReflectionToStringBuilder.toString(u, ToStringStyle.MULTI_LINE_STYLE));
 			
 			pstm = con.prepareStatement(q1, Statement.RETURN_GENERATED_KEYS);
 			
@@ -231,7 +231,7 @@ public class UsuarioDao extends BaseDao{
 			pstm.executeUpdate();	        
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado enviarEmailRecuperarSenha", e);
+			getLogger().error("Erro processado enviarEmailRecuperarSenha", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -293,7 +293,7 @@ public class UsuarioDao extends BaseDao{
 			
 		}catch (Throwable e) {
 			con.rollback();
-			logger.error("Erro processado atualizar usuario", e);
+			getLogger().error("Erro processado atualizar usuario", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -310,7 +310,7 @@ public class UsuarioDao extends BaseDao{
 			String q1 = "insert into usuario(bairro,celular,cep,cidade,complemento,cpf,data_cadastro,email,endereco,id_cliente,id_perfil,nome,numero,telefone,uf,senha)" +
 					" values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,md5(?))" ;
 			
-			logger.debug(ReflectionToStringBuilder.toString(u, ToStringStyle.MULTI_LINE_STYLE));
+			getLogger().debug(ReflectionToStringBuilder.toString(u, ToStringStyle.MULTI_LINE_STYLE));
 			
 			pstm = con.prepareStatement(q1, Statement.RETURN_GENERATED_KEYS);
 			
@@ -356,7 +356,7 @@ public class UsuarioDao extends BaseDao{
 	        
 		}catch (Throwable e) {
 			con.rollback();
-			logger.error("Erro processado adicionar usuario", e);
+			getLogger().error("Erro processado adicionar usuario", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -384,7 +384,7 @@ public class UsuarioDao extends BaseDao{
 			}
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado existeEmail", e);
+			getLogger().error("Erro processado existeEmail", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -425,7 +425,7 @@ public class UsuarioDao extends BaseDao{
 			}
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado buscar usuario", e);
+			getLogger().error("Erro processado buscar usuario", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -457,7 +457,7 @@ public class UsuarioDao extends BaseDao{
 			}
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado buscar listaTotasPermissoes", e);
+			getLogger().error("Erro processado buscar listaTotasPermissoes", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -491,7 +491,7 @@ public class UsuarioDao extends BaseDao{
 			}
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado buscar listaPermissoes", e);
+			getLogger().error("Erro processado buscar listaPermissoes", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -522,7 +522,7 @@ public class UsuarioDao extends BaseDao{
 			}
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado buscar listaPermissoesUsuario", e);
+			getLogger().error("Erro processado buscar listaPermissoesUsuario", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -553,7 +553,7 @@ public class UsuarioDao extends BaseDao{
 			}
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado buscar permissaoLink", e);
+			getLogger().error("Erro processado buscar permissaoLink", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -601,7 +601,7 @@ public class UsuarioDao extends BaseDao{
 			}
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado buscar usuario", e);
+			getLogger().error("Erro processado buscar usuario", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -626,7 +626,7 @@ public class UsuarioDao extends BaseDao{
 			
 		}catch (Throwable e) {
 			con.rollback();
-			logger.error("erro atualizando senha", e);
+			getLogger().error("erro atualizando senha", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			

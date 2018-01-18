@@ -32,7 +32,7 @@ public class ImagemDao extends BaseDao {
 			}
         	
 			}catch (Throwable e) {
-				logger.error("Erro processado buscar id imagem", e);
+				getLogger().error("Erro processado buscar id imagem", e);
 				throw new DaoException(e.getMessage(), e.getCause());
 			}finally{
 				desconectar();
@@ -55,7 +55,7 @@ public class ImagemDao extends BaseDao {
 			
 		}catch (Throwable e) {
 			con.rollback();
-			logger.error("Erro processado excluir", e);
+			getLogger().error("Erro processado excluir", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -85,7 +85,7 @@ public class ImagemDao extends BaseDao {
 			}
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado buscar imagem", e);
+			getLogger().error("Erro processado buscar imagem", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}
 		
@@ -110,7 +110,7 @@ public class ImagemDao extends BaseDao {
 			
 		}catch (Throwable e) {
 			e.printStackTrace();
-			logger.error("Erro allProcessado imagem", e);
+			getLogger().error("Erro allProcessado imagem", e);
 //			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -146,7 +146,7 @@ public class ImagemDao extends BaseDao {
 			
 		}catch (Throwable e) {
 			e.printStackTrace();
-			logger.error("Erro processado buscar imagem", e);
+			getLogger().error("Erro processado buscar imagem", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -186,7 +186,7 @@ public class ImagemDao extends BaseDao {
 			}
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado buscar imagem", e);
+			getLogger().error("Erro processado buscar imagem", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -225,7 +225,7 @@ public class ImagemDao extends BaseDao {
 			}
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado buscar imagem", e);
+			getLogger().error("Erro processado buscar imagem", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -251,7 +251,7 @@ public class ImagemDao extends BaseDao {
 			
 		}catch (Throwable e) {
 			con.rollback();
-			logger.error("Erro processado update status", e);
+			getLogger().error("Erro processado update status", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -265,7 +265,7 @@ public class ImagemDao extends BaseDao {
 		String str = "insert into imagem(nome,caminho_completo,data_cadastro,id_cliente,status,usuario)" + 
 		" values(?,?,?,?,?,?)";
 		
-		logger.debug(ReflectionToStringBuilder.toString(a, ToStringStyle.MULTI_LINE_STYLE));
+		getLogger().debug(ReflectionToStringBuilder.toString(a, ToStringStyle.MULTI_LINE_STYLE));
 		
 		pstm = con.prepareStatement(str, Statement.RETURN_GENERATED_KEYS);
 		
@@ -290,7 +290,7 @@ public class ImagemDao extends BaseDao {
 		
 	}catch (Throwable e) {
 		con.rollback();
-		logger.error("Erro processado adicionar imagem", e);
+		getLogger().error("Erro processado adicionar imagem", e);
 		throw new DaoException(e.getMessage(), e.getCause());
 	}finally{
 		desconectar();

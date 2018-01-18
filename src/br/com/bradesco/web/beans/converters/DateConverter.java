@@ -17,7 +17,7 @@ import br.com.bradesco.web.util.Utils;
 @FacesConverter(value="dateConverter")
 public class DateConverter implements Converter {
 	
-	protected Logger logger = Logger.getLogger(this.getClass());
+	private final transient Logger logger = Logger.getLogger(this.getClass());
 
 	SimpleDateFormat sdf_br = new SimpleDateFormat("dd/MM/yyyy");
 	

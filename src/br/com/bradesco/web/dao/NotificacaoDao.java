@@ -53,7 +53,7 @@ public class NotificacaoDao extends BaseDao{
 				
 			}
 		}catch(Throwable t){
-			logger.error(t, t);
+			getLogger().error(t, t);
 		}finally{
 			desconectar();
 		}
@@ -76,7 +76,7 @@ public class NotificacaoDao extends BaseDao{
 			}
 			
 		}catch(Throwable t){
-			logger.error(t, t);
+			getLogger().error(t, t);
 		}finally{
 			desconectar();
 		}
@@ -115,7 +115,7 @@ public class NotificacaoDao extends BaseDao{
 			
 			
 		}catch(Throwable t){
-			logger.error(t, t);
+			getLogger().error(t, t);
 		}finally{
 			desconectar();
 		}
@@ -136,7 +136,7 @@ public class NotificacaoDao extends BaseDao{
 			query.append(" and n.id=");
 			query.append(idNotificacao);
 			
-			logger.debug(query.toString());
+			getLogger().debug(query.toString());
 			rs = con.createStatement().executeQuery(query.toString());
 			
 			if (rs.next()) {

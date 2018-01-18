@@ -27,7 +27,7 @@ public class NotificacoesDao extends BaseDao{
 			}
 			
 		} catch (Throwable e) {
-			logger.error("erro buscando totalNotificacoes", e);
+			getLogger().error("erro buscando totalNotificacoes", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();

@@ -21,7 +21,7 @@ public class GrupoBean implements Serializable{
 
 	private static final long serialVersionUID = -7369164844505204822L;
 
-	protected Logger logger = Logger.getLogger(GrupoBean.class);
+	private final transient Logger logger = Logger.getLogger(GrupoBean.class);
 	
 	
 	private List<Grupo> grupos;

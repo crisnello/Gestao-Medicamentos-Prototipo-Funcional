@@ -14,7 +14,8 @@ public class PedidoMedicamento {
 
 	@Override
 	public String toString() {
-		return getId() + " - " + getPedido().getId() + " - " + getMedicamento().getId() + " - " + getQuantidade() ;
+		//return getId() + " - " + getPedido().getId() + " - " + getMedicamento().getId() + " - " + getQuantidade() ;
+		return "Quantidade : "+getQuantidade();
 	}
 
 	public long getId() {

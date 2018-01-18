@@ -34,7 +34,7 @@ public class ClienteDao extends BaseDao{
 			}
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado buscarClientes", e);
+			getLogger().error("Erro processado buscarClientes", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -62,7 +62,7 @@ public class ClienteDao extends BaseDao{
 			}
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado buscarCliente", e);
+			getLogger().error("Erro processado buscarCliente", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -110,7 +110,7 @@ public class ClienteDao extends BaseDao{
 	        
 	        
 		}catch (Throwable e) {
-			logger.error("Erro processado adicionar cliente", e);
+			getLogger().error("Erro processado adicionar cliente", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -153,7 +153,7 @@ public class ClienteDao extends BaseDao{
 	        
 	        
 		}catch (Throwable e) {
-			logger.error("Erro processado adicionar cliente", e);
+			getLogger().error("Erro processado adicionar cliente", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
@@ -183,7 +183,7 @@ public class ClienteDao extends BaseDao{
 			}
 			
 		}catch (Throwable e) {
-			logger.error("Erro processado buscar listaPermissoesCliente", e);
+			getLogger().error("Erro processado buscar listaPermissoesCliente", e);
 			throw new DaoException(e.getMessage(), e.getCause());
 		}finally{
 			desconectar();
