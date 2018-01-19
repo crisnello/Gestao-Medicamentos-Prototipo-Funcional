@@ -74,12 +74,14 @@ public class PedidoBean implements Serializable{
 	}
 
 	public void novo() {
+		quantidade = "1";
 		quantidades = new ArrayList<String>();
 		atualizarpedidos();
 		setPedido(new Pedido());
 	}
 	
 	public PedidoBean() {
+		quantidade = "1";
 		quantidades = new ArrayList<String>();
 		atualizarpedidos();
 		setPedido(new Pedido());
