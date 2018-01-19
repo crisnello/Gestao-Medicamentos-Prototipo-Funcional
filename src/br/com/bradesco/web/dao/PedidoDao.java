@@ -247,7 +247,7 @@ public class PedidoDao extends BaseDao{
 	}
 	
 	
-	public void adicionar(Pedido u,ArrayList<Medicamento> meds) throws Throwable{
+	public void adicionar(Pedido u) throws Throwable{
 		try{
 			conectar();
 			
@@ -304,7 +304,7 @@ public class PedidoDao extends BaseDao{
 	        }
 	          
 	        
-	        for(int i=0;i<meds.size();i++) {
+/*	        for(int i=0;i<meds.size();i++) {
 	        	
 	        	Medicamento p = meds.get(i);
 	        	
@@ -321,7 +321,24 @@ public class PedidoDao extends BaseDao{
 				if (affectedRows2 == 0) {
 		            throw new SQLException("Creating pedido failed, no rows affected.");
 		        }
-	        }
+	        }*/
+	        
+			for (PedidoMedicamento pm : u.getPedidomedicamento()) {
+//				getLogger().debug(pm.getMedicamento().getEan() + " - "+pm.getQuantidade());
+	        	String q2 = "insert into pedido_medicamento(id_medicamento,id_pedido,quantidade) values (?,?,?)";
+	        	
+	        	pstm = con.prepareStatement(q2, Statement.RETURN_GENERATED_KEYS);
+	        	
+				pstm.setLong(1, pm.getMedicamento().getId());
+				pstm.setLong(2, u.getId());
+				pstm.setLong(3, pm.getQuantidade());
+				
+				int affectedRows2 = pstm.executeUpdate();
+				if (affectedRows2 == 0) {
+		            throw new SQLException("Creating pedido failed, no rows affected.");
+		        }
+				
+			}
 	        
 	        
 	        

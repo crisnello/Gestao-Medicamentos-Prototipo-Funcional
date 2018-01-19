@@ -270,20 +270,25 @@ public class PedidoBean implements Serializable{
 			logger.debug("getQuantidades "+getQuantidades());
 	        
 			logger.debug("pedido.getPedidomedicamento.size = "+pedido.getPedidomedicamento().size());
-			
-			for (PedidoMedicamento pm : pedido.getPedidomedicamento()) {
-				logger.debug(pm.getMedicamento().getEan() + " - "+pm.getQuantidade());			
+
+			for(int n=0;n<pedido.getPedidomedicamento().size();n++) {
+				PedidoMedicamento pm = pedido.getPedidomedicamento().get(n);
+				pm.setQuantidade(Long.parseLong(getQuantidades().get(n)));
 			}
+			
+/*			for (PedidoMedicamento pm : pedido.getPedidomedicamento()) {
+				logger.debug(pm.getMedicamento().getEan() + " - "+pm.getQuantidade());			
+			}*/
 			
 			logger.debug("pedido.getQuantidade "+pedido.getQuantidade());
 
 			
 	        //POG
-			ArrayList<Medicamento> meds = new ArrayList<Medicamento>();
+/*			ArrayList<Medicamento> meds = new ArrayList<Medicamento>();
 	        for(int i=0;i<pedido.getMedicamentos().size();i++) {
 //	        	logger.debug(Long.parseLong(""+pedido.getMedicamentos().get(i)));
 	        	meds.add(new Medicamento(Long.parseLong(""+pedido.getMedicamentos().get(i))));
-	        }
+	        }*/
 			
 //			logger.debug("MEDICAMENTOS size = "+pedido.getId_medicamentos().size());
 /*			ArrayList<Medicamento> meds = new ArrayList<Medicamento>();
@@ -312,7 +317,7 @@ public class PedidoBean implements Serializable{
 			}else{
 				
 				
-				dao.adicionar(pedido,meds);
+				dao.adicionar(pedido);
 				
 				
 				//Inserindo e Processando todas imagens 
