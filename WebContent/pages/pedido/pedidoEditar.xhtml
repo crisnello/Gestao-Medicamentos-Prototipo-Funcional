@@ -216,7 +216,7 @@
  					
  					 					<tr>
  						<td colspan="4">
- 						<h:outputLabel value="Medicamento" for="medicamento" styleClass="ui-outputlabel"/>
+ 						<h:outputLabel value="Medicamentos" for="medicamentos" styleClass="ui-outputlabel"/>
  							
 		 						<table class="bradseg-table  " width="100%" >
 								    <thead class="hidden-xs">
@@ -230,7 +230,7 @@
 								    </thead>
 								    <tbody height="150px">
 								    	
-									    <ui:repeat var="x" value="#{pedidoBean.pedido.pedidomedicamento}" varStatus="status">
+									    <ui:repeat var="x" value="#{pedidoBean.pedido.pedidomedicamento}" id="medicamentos"  varStatus="status">
 												<tr>
 										            <td class="col-md-1 col-sm-1 col-xs-12 text-center">
 										                <div class="bradseg-chk">
