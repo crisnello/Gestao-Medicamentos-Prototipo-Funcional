@@ -171,7 +171,7 @@
 								             <th class="col-md-2">Quantidade</th>
 								        </tr>
 								    </thead>
-								    <tbody height="150px">
+								    <tbody height="250px">
 								    	
 									    <ui:repeat var="x" value="#{pedidoBean.pedido.pedidomedicamento}" varStatus="status">
 												<tr>
@@ -185,7 +185,8 @@
 										            <td class="col-md-2 col-sm-2 col-xs-12">#{x.medicamento.apresentacao}</td>
 										            <td class="col-md-2 col-sm-2 col-xs-12">
 
-										            	
+										            	<p:inputText value="#{pedidoBean.quantidade}"   size="5" maxlength="5"  styleClass="small  ">
+														</p:inputText>
 
 										            
 										            </td>
@@ -201,18 +202,16 @@
 
 <tr>
 	<td>
-													    <p:inputText valueChangeListener="#{pedidoBean.colocarQuantidade}"  size="5" maxlength="5"  styleClass="small  ">
-															<f:ajax   event="change" execute="@this"/>
-														</p:inputText>	
+			    <p:inputText valueChangeListener="#{pedidoBean.colocarQuantidade}" value="#{pedidoBean.pedido.quantidade}"  size="5" maxlength="5"  styleClass="small  ">
+					<f:ajax   event="change" execute="@this"/>
+				</p:inputText>	
 	</td>
 </tr>
   					
  					<tr>
 	 					<td colspan="2">
 	 					<div class="form-group">
-	 						 <h:commandButton value="Adicionar" action="#{pedidoBean.adicionar}" ajax="false" process="form_pedido_add" update="@all" icon="ui-icon-plus" styleClass="bradseg-btn small blue">
-	 								
-	 						</h:commandButton>
+	 						 <h:commandButton value="Adicionar" action="#{pedidoBean.adicionar}" ajax="false" process="form_pedido_add" update="@all" icon="ui-icon-plus" styleClass="bradseg-btn small blue"/>
 	 						</div>
 	 					</td>
 	 				</tr>

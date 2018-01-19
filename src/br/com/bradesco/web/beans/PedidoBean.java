@@ -6,8 +6,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.event.ValueChangeEvent;
@@ -25,7 +27,7 @@ import br.com.bradesco.web.entitie.Usuario;
 import br.com.bradesco.web.util.Utils;
 
 @ManagedBean(name="pedidoBean")
-@RequestScoped
+@ApplicationScoped
 public class PedidoBean implements Serializable{
 	
 	private List<Imagem> imagens;
@@ -37,8 +39,6 @@ public class PedidoBean implements Serializable{
 	private List<Pedido> pedidos;
 	
 	private Pedido pedido;
-	
-
 
 	public List<Imagem> getImagens() {
 		return imagens;
@@ -48,9 +48,20 @@ public class PedidoBean implements Serializable{
 		this.imagens = imagens;
 	}
 
-	private List<String> quantidades;
-
+	private String quantidade;
 	
+	
+	public String getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(String quantidade) {
+		this.quantidade = quantidade;
+		
+		getQuantidades().add(quantidade);
+	}
+
+	private List<String> quantidades;
 	
 
 	public List<String> getQuantidades() {
@@ -58,9 +69,16 @@ public class PedidoBean implements Serializable{
 	}
 
 	public void setQuantidades(List<String> quantidades) {
+		
 		this.quantidades = quantidades;
 	}
 
+	public void novo() {
+		quantidades = new ArrayList<String>();
+		atualizarpedidos();
+		setPedido(new Pedido());
+	}
+	
 	public PedidoBean() {
 		quantidades = new ArrayList<String>();
 		atualizarpedidos();
@@ -111,6 +129,8 @@ public class PedidoBean implements Serializable{
         	pMed.setMedicamento(med);
         	pMed.setQuantidade(1);
         	
+//        	getQuantidades().add(""+pMed.getQuantidade());
+        	
         	pmeds.add(pMed);
         }
         
@@ -124,7 +144,8 @@ public class PedidoBean implements Serializable{
 
 	
 	public String pedidoAdd(){
-		atualizarpedidos();
+//		atualizarpedidos();
+		novo();
 		return "/pages/pedido/pedidoAdd";
 	}
 	
@@ -138,8 +159,9 @@ public class PedidoBean implements Serializable{
 			
 			dao.excluir(Long.parseLong(id));
 			
-			atualizarpedidos();
+//			atualizarpedidos();
 			Utils.addMessageSucesso("Pedido excluído com sucesso.");
+			novo();
 		}catch(Throwable e){
 			Utils.addMessageErro("Falha ao excluir pedido.");
 			return "/pages/pedido/pedidoEditar";
@@ -205,7 +227,8 @@ public class PedidoBean implements Serializable{
 			dao.alterar(pedido);
 			
 			Utils.addMessageSucesso("Pedido atualizado com sucesso.");
-			atualizarpedidos();
+			novo();
+//			atualizarpedidos();
 		}catch(Throwable e){
 			Utils.addMessageErro("Falha ao atualizado pedido.");
 			return "/pages/pedido/pedidoEditar";
@@ -233,25 +256,27 @@ public class PedidoBean implements Serializable{
 					Long pIdMed = Long.valueOf(""+pedido.getMedicamentos().get(i));
 					med = new MedicamentoDao().buscarMedicamento(pIdMed.intValue());
 					
-					FacesContext context = FacesContext.getCurrentInstance();
-				    Long id = context.getApplication().evaluateExpressionGet(context, "#{item.id}", Long.class);
-				   
-					
 				}catch(Throwable t) {
 					t.printStackTrace();
 				}
 	        	
 	        }
 	        
+	        logger.debug("CHEGOU");
+	        
 
-/*			logger.debug(pedido.getPedidomedicamento().size());
+	        logger.debug("getQuantidades.size "+getQuantidades().size());
+	        
+			logger.debug("getQuantidades "+getQuantidades());
+	        
+			logger.debug("pedido.getPedidomedicamento.size = "+pedido.getPedidomedicamento().size());
 			
-	        for(int i=0;i<pedido.getPedidomedicamento().size();i++) {
-	        	logger.debug(Long.parseLong(""+pedido.getPedidomedicamento().get(i)));
-	        }*/
-	        
-	        
-//	        logger.debug("OK");
+			for (PedidoMedicamento pm : pedido.getPedidomedicamento()) {
+				logger.debug(pm.getMedicamento().getEan() + " - "+pm.getQuantidade());			
+			}
+			
+			logger.debug("pedido.getQuantidade "+pedido.getQuantidade());
+
 			
 	        //POG
 			ArrayList<Medicamento> meds = new ArrayList<Medicamento>();
@@ -300,7 +325,8 @@ public class PedidoBean implements Serializable{
 			
 			
 			Utils.addMessageSucesso("Pedido adicionado com sucesso.");
-			atualizarpedidos();
+//			atualizarpedidos();
+			novo();
 			return "/pages/pedido/template";
 		}catch(Throwable e){
 			Utils.addMessageSucesso("Falha ao adicionar pedido.");
@@ -329,36 +355,28 @@ public class PedidoBean implements Serializable{
 
 	}
 	
-	public void save(String rowid) {
-        String jsParam = getJsParam("repeat:" + rowid + ":x");
-        System.out.println("jsParam: " + jsParam); //persist...
-        logger.debug(jsParam);
-    }
-	
-	public static String getJsParam(String paramName) {
-	    javax.faces.context.FacesContext jsf = javax.faces.context.FacesContext.getCurrentInstance();
-	    Map<String, String> requestParameterMap = jsf.getExternalContext().getRequestParameterMap();
-	    String paramValue = requestParameterMap.get(paramName);
-	    if (paramValue != null) {
-	        paramValue = paramValue.trim();
-	        if (paramValue.length() == 0) {
-	            paramValue = null;
-	        }
-	    }
-	    return paramValue;
-	}
-	
 	public void colocarQuantidade(ValueChangeEvent event){
+		
+		
+		logger.debug("pedido.getPedidomedicamento.size = "+pedido.getPedidomedicamento().size());
+		
+		for (PedidoMedicamento pm : pedido.getPedidomedicamento()) {
+			logger.debug(pm.getMedicamento().getEan() + " - "+pm.getQuantidade());			
+		}
+		
 		
 		logger.debug("colocarQuantidade");
 		String input = event.getNewValue().toString();
+		Long pValue = new Long(0);
+		try {
+			pValue = Long.parseLong(input);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		pedido.setQuantidade(pValue);
 		logger.debug(input);
-		
-/*		for (PedidoMedicamento pm : pedido.getPedidomedicamento()) {
-			logger.debug(pm.getMedicamento().getEan() + " - "+pm.getQuantidade());			
-		}*/
-
-		
+	
 /*		logger.debug(pedido.getPedidomedicamento().size());
 		
         for(int i=0;i<pedido.getPedidomedicamento().size();i++) {
